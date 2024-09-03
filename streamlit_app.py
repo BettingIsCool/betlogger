@@ -15,7 +15,7 @@ if selected_sport is not None:
 
   if selected_from_date:
 
-    selected_to_date = st.sidebar.date_input(label='Select date to', value = selected_from_date + datetime.timedelta(days=3), max_value=selected_from_date + datetime.timedelta(days=10), help='Specify what date you want to end your search. Please note that a maximum range of 10 days is allowed.')
+    selected_to_date = st.sidebar.date_input(label='Select date to', value = selected_from_date + datetime.timedelta(days=3), min_value=selected_from_date + datetime.timedelta(days=1), max_value=selected_from_date + datetime.timedelta(days=10), help='Specify what date you want to end your search. Please note that a maximum range of 10 days is allowed.')
     
     if selected_to_date is not None:
   
