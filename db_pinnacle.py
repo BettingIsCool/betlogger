@@ -15,4 +15,4 @@ def get_leagues(sport_id: int):
 @st.cache_data(ttl=10)
 def get_fixtures(sport_id: int, starts: datetime):
 
-  return conn.query(f"SELECT DISTINCT(league_id), league_name FROM {TABLE_FIXTURES} WHERE sport_id = {sport_id} and DATE(starts) = '{starts.strftime('%Y-%m-%d')}'", ttl=600)
+  return conn.query(f"SELECT event_id, league_id, league_name, starts, runner_home, runner_away FROM {TABLE_FIXTURES} WHERE sport_id = {sport_id} and DATE(starts) = '{starts.strftime('%Y-%m-%d')}'", ttl=600)
