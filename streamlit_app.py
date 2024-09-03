@@ -15,6 +15,7 @@ if selected_sport is not None:
 
   if selected_date is not None:
 
+    st.sidebar.write(selected_date)
     leagues = db.get_leagues(sport_id=SPORTS[selected_sport])
     selected_league = st.sidebar.selectbox(label='Select league', options=leagues['league_name'], index=None, placeholder='Start typing...')
     
