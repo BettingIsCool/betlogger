@@ -7,9 +7,8 @@ from datetime import datetime
 import matplotlib.pyplot as plt
 import streamlit_authenticator as stauth
 
-from config import TEXT_LANDING_PAGE
-
 # Switch to wide-mode for better view
 st.set_page_config(layout="wide")
 
-  
+# Add a bet
+unique_sports = db_imr.get_sports()
