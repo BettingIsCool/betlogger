@@ -10,9 +10,13 @@ selected_sport = st.sidebar.selectbox(label='Select sport', options=SPORTS.keys(
 
 if selected_sport is not None:
 
-  leagues = db.get_leagues(sport_id=SPORTS[selected_sport])
-  selected_league = st.sidebar.selectbox(label='Select league', options=leagues['league_name'], index=None, placeholder='Start typing...')
-  
-  if selected_league is not None:
-    st.sidebar.write(leagues[leagues['league_name'] == selected_league]['league_id'])
+  selected_date = st.sidebar.date_input(label='Select date', value = 'today')
+
+  if selected_date is not None:
+
+    leagues = db.get_leagues(sport_id=SPORTS[selected_sport])
+    selected_league = st.sidebar.selectbox(label='Select league', options=leagues['league_name'], index=None, placeholder='Start typing...')
+    
+    if selected_league is not None:
+      st.sidebar.write(leagues[leagues['league_name'] == selected_league]['league_id'])
 
