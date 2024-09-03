@@ -14,5 +14,5 @@ if selected_sport is not None:
   selected_league = st.sidebar.selectbox(label='Select league', options=leagues['league_name'], index=None, placeholder='Start typing...')
   
   if selected_league is not None:
-    st.sidebar.write(selected_league)
+    st.sidebar.write(leagues[leagues['league_name'] == selected_league]['league_id'])
 
