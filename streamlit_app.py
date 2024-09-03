@@ -6,11 +6,13 @@ from config import SPORTS
 # Add a bet
 st.sidebar.write('Add a bet')
 
-selected_sport = st.sidebar.selectbox(label='Select sport', options=SPORTS.keys())
+selected_sport = st.sidebar.selectbox(label='Select sport', options=SPORTS.keys(), index=None, placeholder='Start typing...')
 
-leagues = db.get_leagues(sport_id=SPORTS[selected_sport])
-selected_league = st.sidebar.selectbox(label='Select league', options=leagues['league_name'], index=None, placeholder='Start typing...')
+if selected_sport is not None:
 
-if selected_league is not None:
-  st.sidebar.write(selected_league)
+  leagues = db.get_leagues(sport_id=SPORTS[selected_sport])
+  selected_league = st.sidebar.selectbox(label='Select league', options=leagues['league_name'], index=None, placeholder='Start typing...')
+  
+  if selected_league is not None:
+    st.sidebar.write(selected_league)
 
