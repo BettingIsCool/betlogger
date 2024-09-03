@@ -1,7 +1,7 @@
 import datetime
 import streamlit as st
 import db_pinnacle as db
-from streamlit_datetime_range_picker import datetime_range_picker
+from streamlit_date_picker import date_range_picker, PickerType, Unit, date_picker
 
 from config import SPORTS
 
@@ -13,8 +13,12 @@ selected_sport = st.sidebar.selectbox(label='Select sport', options=SPORTS.keys(
 if selected_sport is not None:
 
   #selected_date = st.sidebar.date_input(label='Select event start time', value = 'today', min_value=datetime.date(2021, 1, 1))
-  datetime_string = st.sidebar.datetime_range_picker(start=-30, end=0, unit='minutes', key='range_picker', picker_button={'is_show': True, 'button_name': 'Refresh last 30min'})
-
+  date_range_string = date_range_picker(picker_type=PickerType.time.string_value,
+                                      start=-1, end=0, unit=Unit.days.string_value,
+                                      key='range_picker',
+                                      refresh_button={'is_show': True, 'button_name': 'Refresh last 1Days',
+                                                      'refresh_date': -1,
+                                                      'unit': Unit.days.string_value})
   if datetime_string is not None:
       start_datetime = datetime_string[0]
       end_datetime = datetime_string[1]
