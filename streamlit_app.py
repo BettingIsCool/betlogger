@@ -26,6 +26,8 @@ if selected_sport is not None:
         event_options.update({row['event_id']: f"{row['starts']} {row['league_name'].upper()} {row['runner_home']} - {row['runner_away']}"})
       
       selected_event = st.sidebar.selectbox(label='Select event', options=event_options.keys(), index=None, format_func=lambda x: event_options.get(x), placeholder='Start typing...')
+
+      if selected_event is not None:
       
-      st.sidebar.write(selected_event)
+        st.sidebar.write(selected_event)
     
