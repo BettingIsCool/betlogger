@@ -6,4 +6,4 @@ st.set_page_config(layout="wide")
 
 # Add a bet
 unique_sports = db.get_sports()
-selected_sports = st.sidebar.multiselect(label='Sports', options=sorted(unique_sports), default=unique_sports)
+selected_sports = st.selectbox(label='Sports', options=sorted(unique_sports))
