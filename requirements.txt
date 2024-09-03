@@ -2,3 +2,4 @@ SQLAlchemy
 matplotlib
 mysql-connector-python
 streamlit-authenticator==0.1.5
+streamlit_datetime_range_picker
