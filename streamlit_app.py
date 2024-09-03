@@ -28,6 +28,8 @@ if selected_sport is not None:
       selected_event = st.sidebar.selectbox(label='Select event', options=event_options.keys(), index=None, format_func=lambda x: event_options.get(x), placeholder='Start typing...')
 
       if selected_event is not None:
+
+        odds = db.get_odds(event_id=selected_event)
       
-        st.sidebar.write(selected_event)
+        st.sidebar.write(odds)
     
