@@ -17,7 +17,11 @@ if selected_sport is not None:
 
     events = db.get_fixtures(sport_id=SPORTS[selected_sport], starts=selected_date)
 
-    st.sidebar.write(events)
+    event_options = dict()
+    for index, row in events.iterrows():
+      event_options.update({row['event_id']: f"{row['runner_home']} - {row['runner_away']}"})
+    
+    st.sidebar.write(event_options)
     
     
     #selected_event = st.sidebar.selectbox(label='Select league', options=sorted(leagues['league_name']), index=None, placeholder='Start typing...')
