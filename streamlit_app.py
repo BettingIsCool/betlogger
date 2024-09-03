@@ -19,7 +19,7 @@ if selected_sport is not None:
     
     if selected_to_date is not None:
   
-      events = db.get_fixtures(sport_id=SPORTS[selected_sport], starts=selected_date)
+      events = db.get_fixtures(sport_id=SPORTS[selected_sport], date_from=selected_from_date, date_to=selected_to_date)
   
       event_options = dict()
       for index, row in events.iterrows():
