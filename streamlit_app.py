@@ -20,5 +20,5 @@ if selected_sport is not None:
     st.sidebar.write(events)
     
     
-    selected_event = st.sidebar.selectbox(label='Select league', options=sorted(leagues['league_name']), index=None, placeholder='Start typing...')
+    #selected_event = st.sidebar.selectbox(label='Select league', options=sorted(leagues['league_name']), index=None, placeholder='Start typing...')
     
