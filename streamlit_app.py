@@ -11,7 +11,7 @@ selected_sport = st.sidebar.selectbox(label='Select sport', options=SPORTS.keys(
 
 if selected_sport is not None:
 
-  selected_date = st.sidebar.date_input(label='Select date', value = 'today', min_value=datetime.date(2021, 1, 1), placeholder='Event start time (CET)')
+  selected_date = st.sidebar.date_input(label='Select date', value = 'today', min_value=datetime.date(2021, 1, 1), help='Event start time (CET)')
 
   if selected_date is not None:
 
