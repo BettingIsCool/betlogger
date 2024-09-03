@@ -1,5 +1,6 @@
 import streamlit as st
 from sqlalchemy import text
+from datetime import datetime
 from config import TABLE_LEAGUES, TABLE_FIXTURES, TABLE_ODDS, TABLE_RESULTS, TABLE_BETS, TABLE_USERS
 
 conn = st.connection('pinnacle', type='sql')
