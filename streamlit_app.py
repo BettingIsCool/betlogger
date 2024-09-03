@@ -17,7 +17,7 @@ if selected_sport is not None:
 
     events = db.get_fixtures(sport_id=SPORTS[selected_sport], starts=selected_date)
 
-     st.sidebar.write(events)
+    st.sidebar.write(events)
     
     
     selected_event = st.sidebar.selectbox(label='Select league', options=sorted(leagues['league_name']), index=None, placeholder='Start typing...')
