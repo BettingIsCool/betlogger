@@ -1,6 +1,6 @@
 import streamlit as st
 import db_pinnacle as db
-from datetime import datetime
+import datetime
 
 from config import SPORTS
 
