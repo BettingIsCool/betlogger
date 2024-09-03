@@ -19,7 +19,7 @@ if selected_sport is not None:
 
     event_options = dict()
     for index, row in events.iterrows():
-      event_options.update({row['event_id']: f"{row['runner_home']} - {row['runner_away']}"})
+      event_options.update({row['event_id']: f"{row['starts']} {row['league_name'].upper()} {row['runner_home']} - {row['runner_away']}"})
     
     st.sidebar.write(event_options)
     
