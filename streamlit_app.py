@@ -20,8 +20,7 @@ if selected_sport is not None:
                                                       'refresh_date': -1,
                                                       'unit': Unit.days.string_value})
   if datetime_string is not None:
-      start_datetime = datetime_string[0]
-      end_datetime = datetime_string[1]
+      st.write(date_range_string)
   
       if selected_date is not None:
     
