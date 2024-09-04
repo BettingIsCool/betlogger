@@ -30,7 +30,13 @@ if selected_sport is not None:
       if selected_event is not None:
 
         odds = db.get_odds(event_id=selected_event)
-        selected_period = st.sidebar.selectbox(label='Select market', options=odds.market.unique())
+        selected_market = st.sidebar.selectbox(label='Select market', options=odds.market.unique())
+
+        if selected_market is not None:
+
+          selected_period = st.sidebar.selectbox(label='Select period', options=odds.market.unique())
+
+          
 
         #st.sidebar.write(odds)
     
