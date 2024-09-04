@@ -56,6 +56,23 @@ if selected_sport is not None:
                     side_options.update({'odds0': 'Draw'})
                   if row['odds2'] is not None:
                     side_options.update({'odds2': event_details[selected_event_id]['runner_away']})
+              
+              elif selected_market == 'spread':
+                if row['market'] == selected_market and row['period'] == selected_period:
+                  if row['odds1'] is not None:
+                    side_options.update({'odds1': event_details[selected_event_id]['runner_home']})
+                  if row['odds2'] is not None:
+                    side_options.update({'odds2': event_details[selected_event_id]['runner_away']})
+              
+              elif selected_market in ('totals', 'home_totals', 'away_totals'):
+                if row['market'] == selected_market and row['period'] == selected_period:
+                  if row['odds1'] is not None:
+                    side_options.update({'odds1': 'Over'})
+                  if row['odds2'] is not None:
+                    side_options.update({'odds2': 'Under'})
+            
+            
+            
             
             selected_side = st.sidebar.selectbox(label='Select side', options=side_options.keys(), index=None, format_func=lambda x: side_options.get(x))
 
