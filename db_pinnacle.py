@@ -22,3 +22,9 @@ def get_fixtures(sport_id: int, date_from: datetime, date_to: datetime):
 def get_odds(event_id: int):
 
   return conn.query(f"SELECT period, market, line, odds1, odds0, odds2 FROM {TABLE_ODDS} WHERE event_id = {event_id}", ttl=600)
+
+
+@st.cache_data(ttl=10)
+def get_users():
+
+  return conn.query(f"SELECT name, username, password FROM {TABLE_USERS}", ttl=600).to_dict('records')
