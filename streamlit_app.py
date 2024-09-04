@@ -57,7 +57,7 @@ if authentication_status:
         if selected_event_id is not None:
   
           odds = db.get_odds(event_id=selected_event_id)
-          selected_market = st.sidebar.selectbox(label='Select market', options=odds.market.unique(), index=0)
+          selected_market = st.sidebar.selectbox(label='Select market', options=odds.market.unique(), index=0, help='Only markets with available closing odds are listed.')
   
           if selected_market is not None:
   
@@ -110,7 +110,8 @@ if authentication_status:
                       line_options.update({row['line']: row['line']})
                 
                 selected_line = st.sidebar.selectbox(label='Select line', options=line_options.keys(), index=None, format_func=lambda x: line_options.get(x), help='Only lines with available closing odds are listed.')
-                tag = st.sidebar.text_input("Enter tag")
+              
+              tag = st.sidebar.text_input("Enter tag")
   
               data = dict()
               data.update({'user': username})
