@@ -1,11 +1,12 @@
 import datetime
 import streamlit as st
 import db_pinnacle as db
+import streamlit_authenticator as stauth
 
 from config import SPORTS, PERIODS
 
 # Fetch all active users from database
-users = db_imr.get_users()
+users = db.get_users()
 
 # Create credential lists for authentication
 names = [item['name'] for item in users]
