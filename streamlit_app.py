@@ -131,6 +131,5 @@ if authentication_status:
 
               if bet_added:
                          
-                #st.write(data)
-                st.write('Hello World')
+                st.write(data)
     
