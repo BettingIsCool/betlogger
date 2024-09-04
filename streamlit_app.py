@@ -38,7 +38,7 @@ if selected_sport is not None:
           period_options = dict()
           for index, row in odds.iterrows():
             if row['market'] == selected_market and row['period'] not in period_options.keys():
-              period_options.update({row['period']: PERIODS[(sport_id, row['period'])]})
+              period_options.update({row['period']: PERIODS[(SPORTS[selected_sport], row['period'])]})
 
           selected_period = st.sidebar.selectbox(label='Select period', options=period_options.keys(), index=0, format_func=lambda x: period_options.get(x))          
 
