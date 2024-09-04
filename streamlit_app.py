@@ -73,6 +73,7 @@ if selected_sport is not None:
 
             selected_side = st.sidebar.selectbox(label='Select side', options=side_options.keys(), index=None, format_func=lambda x: side_options.get(x))
 
+            selected_line = None
             if selected_side is not None and selected_market != 'moneyline':
 
               # Please note that the selected home line is returned even if the selection is 'away'
@@ -86,5 +87,5 @@ if selected_sport is not None:
               
               selected_line = st.sidebar.selectbox(label='Select line', options=line_options.keys(), index=None, format_func=lambda x: line_options.get(x))
 
-              st.sidebar.write(selected_event_id, event_details[selected_event_id]['starts'], event_details[selected_event_id]['league_id'], event_details[selected_event_id]['league_name'], event_details[selected_event_id]['runner_home'], event_details[selected_event_id]['runner_away'], selected_market, selected_period, selected_side, selected_line, closing_limit)
+            st.sidebar.write(selected_event_id, event_details[selected_event_id]['starts'], event_details[selected_event_id]['league_id'], event_details[selected_event_id]['league_name'], event_details[selected_event_id]['runner_home'], event_details[selected_event_id]['runner_away'], selected_market, selected_period, selected_side, selected_line, closing_limit)
   
