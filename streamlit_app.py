@@ -111,7 +111,7 @@ if authentication_status:
                 
                 selected_line = st.sidebar.selectbox(label='Select line', options=line_options.keys(), index=None, format_func=lambda x: line_options.get(x), help='Only lines with available closing odds are listed.')
               
-              tag = st.sidebar.text_input("Enter tag")
+              tag = st.sidebar.text_input("Enter tag", help='ddd')
   
               data = dict()
               data.update({'user': username})
