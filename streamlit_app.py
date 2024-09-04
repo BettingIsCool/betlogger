@@ -110,6 +110,21 @@ if authentication_status:
                       line_options.update({row['line']: row['line']})
                 
                 selected_line = st.sidebar.selectbox(label='Select line', options=line_options.keys(), index=None, format_func=lambda x: line_options.get(x))
+                tag = st.text_input("Enter your other option...")
   
-              st.sidebar.write(selected_event_id, event_details[selected_event_id]['starts'], event_details[selected_event_id]['league_id'], event_details[selected_event_id]['league_name'], event_details[selected_event_id]['runner_home'], event_details[selected_event_id]['runner_away'], selected_market, selected_period, selected_side, selected_line)
+              data = dict()
+              data.update({'user': username})
+              data.update({'tag': tag})
+              data.update({'event_id': selected_event_id})
+              data.update({'starts': event_details[selected_event_id]['starts']})
+              data.update({'league_id': event_details[selected_event_id]['league_id']})
+              data.update({'league_name': event_details[selected_event_id]['league_name']})
+              data.update({'runner_home': event_details[selected_event_id]['runner_home']})
+              data.update({'runner_away': event_details[selected_event_id]['runner_away']})
+              data.update({'market': selected_market})
+              data.update({'period': selected_period})
+              data.update({'side': selected_side})
+              data.update({'raw_line': selected_line}) if selected_line is not None else data.update({'raw_line': None})
+                         
+              st.sidebar.write(, selected_market, selected_period, selected_side, selected_line)
     
