@@ -4,6 +4,22 @@ import db_pinnacle as db
 
 from config import SPORTS, PERIODS
 
+# Fetch all active users from database
+users = db_imr.get_users()
+
+# Create credential lists for authentication
+names = [item['name'] for item in users]
+usernames = [item['username'] for item in users]
+passwords = [item['password'] for item in users]
+
+# Create hashed passwords for secure login
+hashed_passwords = stauth.Hasher(passwords).generate()
+authenticator = stauth.Authenticate(names, usernames, hashed_passwords, 'app_home', 'auth', cookie_expiry_days=0)
+name, authentication_status, username = authenticator.login("Login", "sidebar")
+
+# Display name & widgets in side bar
+st.sidebar.title(f"Welcome {name}")
+
 # Add a bet
 st.sidebar.write('Add a bet')
 
