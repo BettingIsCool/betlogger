@@ -126,5 +126,5 @@ if authentication_status:
               data.update({'side': selected_side})
               data.update({'raw_line': selected_line}) if selected_line is not None else data.update({'raw_line': None})
                          
-              st.sidebar.write(, selected_market, selected_period, selected_side, selected_line)
+              st.write(data)
     
