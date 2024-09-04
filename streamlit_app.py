@@ -2,7 +2,7 @@ import datetime
 import streamlit as st
 import db_pinnacle as db
 
-from config import SPORTS
+from config import SPORTS, PERIODS
 
 # Add a bet
 st.sidebar.write('Add a bet')
@@ -23,7 +23,8 @@ if selected_sport is not None:
   
       event_options = dict()
       for index, row in events.iterrows():
-        event_options.update({row['event_id']: f"{row['starts']} {row['league_name'].upper()} {row['runner_home']} - {row['runner_away']}"})
+        if row['event_id'] not in event_options.keys():
+          event_options.update({row['event_id']: f"{row['starts']} {row['league_name'].upper()} {row['runner_home']} - {row['runner_away']}"})
       
       selected_event = st.sidebar.selectbox(label='Select event', options=event_options.keys(), index=None, format_func=lambda x: event_options.get(x), placeholder='Start typing...')
 
@@ -34,9 +35,12 @@ if selected_sport is not None:
 
         if selected_market is not None:
 
-          selected_period = st.sidebar.selectbox(label='Select period', options=odds.market.unique())
+          period_options = dict()
+          for index, row in odds.iterrows():
+            if row['market'] == selected_market and row['period'] not in period_options.keys():
+              period_options.update({row['period']: PERIODS[(sport_id, row['period'])]})
 
-          
+          selected_period = st.sidebar.selectbox(label='Select period', options=period_options.keys(), index=0, format_func=lambda x: period_options.get(x))          
 
         #st.sidebar.write(odds)
     
