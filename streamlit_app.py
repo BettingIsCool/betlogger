@@ -31,7 +31,7 @@ if selected_sport is not None:
       if selected_event_id is not None:
 
         odds = db.get_odds(event_id=selected_event_id)
-        selected_market = st.sidebar.selectbox(label='Select market', options=odds.market.unique())
+        selected_market = st.sidebar.selectbox(label='Select market', options=odds.market.unique(), index=0)
 
         if selected_market is not None:
 
