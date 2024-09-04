@@ -22,9 +22,11 @@ if selected_sport is not None:
       events = db.get_fixtures(sport_id=SPORTS[selected_sport], date_from=selected_from_date, date_to=selected_to_date)
   
       event_options = dict()
+      event_details = dict()
       for index, row in events.iterrows():
         if row['event_id'] not in event_options.keys():
           event_options.update({row['event_id']: f"{row['starts']} {row['league_name'].upper()} {row['runner_home']} - {row['runner_away']}"})
+          event_details.update({row['event_id']: f"{row['starts']} {row['league_name'].upper()} {row['runner_home']} - {row['runner_away']}"})
       
       selected_event_id = st.sidebar.selectbox(label='Select event', options=event_options.keys(), index=None, format_func=lambda x: event_options.get(x), placeholder='Start typing...')
 
@@ -40,7 +42,18 @@ if selected_sport is not None:
             if row['market'] == selected_market and row['period'] not in period_options.keys():
               period_options.update({row['period']: PERIODS[(SPORTS[selected_sport], row['period'])]})
 
-          selected_period = st.sidebar.selectbox(label='Select period', options=period_options.keys(), index=0, format_func=lambda x: period_options.get(x))          
+          selected_period = st.sidebar.selectbox(label='Select period', options=period_options.keys(), index=0, format_func=lambda x: period_options.get(x))
+
+          if selected_period is not None:
+
+            side_options = dict()
+            for index, row in odds.iterrows():
+              if selected_market == 'moneyline':
+                if row['market'] == selected_market and row['period'] == selected_period:
+                  if row['odds1'] is not None:
+                    side_options.update({'odds1': })
+                    
+              
 
           st.sidebar.write(selected_event_id, selected_period)
     
