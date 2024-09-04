@@ -42,5 +42,5 @@ if selected_sport is not None:
 
           selected_period = st.sidebar.selectbox(label='Select period', options=period_options.keys(), index=0, format_func=lambda x: period_options.get(x))          
 
-          st.sidebar.write(selected_event_id)
+          st.sidebar.write(selected_event_id, selected_period)
     
