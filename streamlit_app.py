@@ -26,11 +26,11 @@ if selected_sport is not None:
         if row['event_id'] not in event_options.keys():
           event_options.update({row['event_id']: f"{row['starts']} {row['league_name'].upper()} {row['runner_home']} - {row['runner_away']}"})
       
-      selected_event = st.sidebar.selectbox(label='Select event', options=event_options.keys(), index=None, format_func=lambda x: event_options.get(x), placeholder='Start typing...')
+      selected_event_id = st.sidebar.selectbox(label='Select event', options=event_options.keys(), index=None, format_func=lambda x: event_options.get(x), placeholder='Start typing...')
 
-      if selected_event is not None:
+      if selected_event_id is not None:
 
-        odds = db.get_odds(event_id=selected_event)
+        odds = db.get_odds(event_id=selected_event_id)
         selected_market = st.sidebar.selectbox(label='Select market', options=odds.market.unique())
 
         if selected_market is not None:
@@ -42,5 +42,5 @@ if selected_sport is not None:
 
           selected_period = st.sidebar.selectbox(label='Select period', options=period_options.keys(), index=0, format_func=lambda x: period_options.get(x))          
 
-        #st.sidebar.write(odds)
+          st.sidebar.write(selected_event_id)
     
