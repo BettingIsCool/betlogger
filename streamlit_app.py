@@ -4,9 +4,6 @@ import db_pinnacle as db
 
 from config import SPORTS, PERIODS
 
-# Switch to wide-mode for better view
-st.set_page_config(layout="wide")
-
 # Add a bet
 st.sidebar.write('Add a bet')
 
