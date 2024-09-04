@@ -70,11 +70,10 @@ if selected_sport is not None:
                     side_options.update({'odds1': 'Over'})
                   if row['odds2'] is not None:
                     side_options.update({'odds2': 'Under'})
-            
-            
-            
-            
+
             selected_side = st.sidebar.selectbox(label='Select side', options=side_options.keys(), index=None, format_func=lambda x: side_options.get(x))
 
-            st.sidebar.write(selected_event_id, selected_period, selected_side)
+            
+
+            st.sidebar.write(selected_event_id, event_details[selected_event_id]['starts'], event_details[selected_event_id]['league_id'], event_details[selected_event_id]['league_name'], event_details[selected_event_id]['runner_home'],  event_details[selected_event_id]['runner_away'], selected_market, selected_period, selected_side)
     
