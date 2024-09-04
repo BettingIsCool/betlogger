@@ -73,6 +73,7 @@ if selected_sport is not None:
 
             selected_side = st.sidebar.selectbox(label='Select side', options=side_options.keys(), index=None, format_func=lambda x: side_options.get(x))
 
+            selected_line = None
             if selected_side is not None:
             
               if selected_market != 'moneyline':
