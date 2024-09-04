@@ -126,6 +126,10 @@ if authentication_status:
               data.update({'period': selected_period})
               data.update({'side': selected_side})
               data.update({'raw_line': selected_line}) if selected_line is not None else data.update({'raw_line': None})
+
+              bet_added = st.sidebar.button('Add bet')
+
+              if bet_added:
                          
-              st.write(data)
+                st.write(data)
     
