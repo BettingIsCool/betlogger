@@ -129,7 +129,7 @@ if authentication_status:
 
               bet_added = st.sidebar.button('Add bet')
 
-              if bet_added:
+              #if bet_added:
                          
-                st.write(data)
+              #  st.write(data)
     
