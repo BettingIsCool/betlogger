@@ -111,7 +111,7 @@ if authentication_status:
                 
                 selected_line = st.sidebar.selectbox(label='Select line', options=line_options.keys(), index=None, format_func=lambda x: line_options.get(x), help='Only lines with available closing odds are listed.')
               
-              tag = st.sidebar.text_input("Enter tag", help='ddd')
+              tag = st.sidebar.text_input("Enter tag", help='You can add a custom string to classify this bet as something that you may want to research in a future analysis. This could be a particular strategy that you are following, a tipster, etc.')
   
               data = dict()
               data.update({'user': username})
