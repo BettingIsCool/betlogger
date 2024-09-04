@@ -26,7 +26,7 @@ if selected_sport is not None:
       for index, row in events.iterrows():
         if row['event_id'] not in event_options.keys():
           event_options.update({row['event_id']: f"{row['starts']} {row['league_name'].upper()} {row['runner_home']} - {row['runner_away']}"})
-          event_details.update({row['event_id']: f"{row['starts']} {row['league_name'].upper()} {row['runner_home']} - {row['runner_away']}"})
+          event_details.update({row['event_id']: {'starts': row['starts'], 'league_id': row['league_id'], 'league_name': row['league_name'], 'runner_home': row['runner_home'], 'runner_away': row['runner_away']}})
       
       selected_event_id = st.sidebar.selectbox(label='Select event', options=event_options.keys(), index=None, format_func=lambda x: event_options.get(x), placeholder='Start typing...')
 
@@ -51,9 +51,13 @@ if selected_sport is not None:
               if selected_market == 'moneyline':
                 if row['market'] == selected_market and row['period'] == selected_period:
                   if row['odds1'] is not None:
-                    side_options.update({'odds1': })
-                    
-              
+                    side_options.update({'odds1': event_details[selected_event_id]['runner_home']})
+                  if row['odds0'] is not None:
+                    side_options.update({'odds0': 'Draw'})
+                  if row['odds2'] is not None:
+                    side_options.update({'odds2': event_details[selected_event_id]['runner_away']})
+            
+            selected_side = st.sidebar.selectbox(label='Select side', options=side_options.keys(), index=None, format_func=lambda x: side_options.get(x))
 
-          st.sidebar.write(selected_event_id, selected_period)
+            st.sidebar.write(selected_event_id, selected_period, selected_side)
     
