@@ -110,16 +110,19 @@ if authentication_status:
                       line_options.update({row['line']: row['line']})
                 
                 selected_line = st.sidebar.selectbox(label='Select line', options=line_options.keys(), index=None, format_func=lambda x: line_options.get(x), help='Only lines with available closing odds are listed.')
-              
-              tag = st.sidebar.text_input("Enter tag", help='You can add a custom string to classify this bet as something that you may want to research in a future analysis. This could be a particular strategy that you are following, a tipster, etc.')
+
+              odds = st.sidebar.number_input("Enter odds", min_value=1.001, value=2.000)
+              tag = st.sidebar.text_input("Enter tag", max_chars=25, help='You can add a custom string to classify this bet as something that you may want to research in a future analysis. This could be a particular strategy that you are following, a tipster, etc.')
   
               data = dict()
               data.update({'user': username})
               data.update({'tag': tag})
-              data.update({'event_id': selected_event_id})
               data.update({'starts': event_details[selected_event_id]['starts']})
+              data.update({'sport_id': SPORTS[selected_sport]})
+              data.update({'sport_name': selected_sport})
               data.update({'league_id': event_details[selected_event_id]['league_id']})
               data.update({'league_name': event_details[selected_event_id]['league_name']})
+              data.update({'event_id': selected_event_id})  
               data.update({'runner_home': event_details[selected_event_id]['runner_home']})
               data.update({'runner_away': event_details[selected_event_id]['runner_away']})
               data.update({'market': selected_market})
