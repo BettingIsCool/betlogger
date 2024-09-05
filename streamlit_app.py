@@ -137,5 +137,7 @@ if authentication_status:
 
               if bet_added:
                 
+                db.append_bet(data=data)
                 st.write(data)
+                
     
