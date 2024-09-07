@@ -41,6 +41,8 @@ def get_bets(username: str, sports: str, leagues: str, bookmakers: str, tags: st
 
 def get_user_unique_sports(username: str):
 
+  st.write(f"SELECT DISTINCT(sport_name) FROM {TABLE_BETS} WHERE user = '{username}'")
+
   return conn.query(f"SELECT DISTINCT(sport_name) FROM {TABLE_BETS} WHERE user = '{username}'")['sport_name'].tolist()
 
 
