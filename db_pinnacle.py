@@ -41,7 +41,7 @@ def append_bet(data: dict):
 @st.cache_data(ttl=10)
 def get_bets(username: str, sports: str, leagues: str, bookmakers: str, tags: str):
 
-  return conn.query(f"SELECT tag, starts, sport_name, league_name, runner_home, runner_away, market, period_name, side_name, line, odds, stake, bookmaker, bet_status, score_home, score_away, profit, ev, clv, bet_added FROM {TABLE_BETS} WHERE user = '{username}' AND sport_name IN {sports} AND leagues IN {leagues} AND bookmaker IN {bookmakers} AND tag in {tags} ORDER BY starts", ttl=600).to_dict('records')
+  return conn.query(f"SELECT tag, starts, sport_name, league_name, runner_home, runner_away, market, period_name, side_name, line, odds, stake, bookmaker, bet_status, score_home, score_away, profit, ev, clv, bet_added FROM {TABLE_BETS} WHERE user = '{username}' AND sport_name IN {sports} AND league_name IN {leagues} AND bookmaker IN {bookmakers} AND tag in {tags} ORDER BY starts", ttl=600).to_dict('records')
 
 
 @st.cache_data(ttl=10)
@@ -59,10 +59,10 @@ def get_user_unique_leagues(username: str, sports: str):
 @st.cache_data(ttl=10)
 def get_user_unique_bookmakers(username: str, sports: str, leagues: str):
 
-  return conn.query(f"SELECT DISTINCT(bookmaker) FROM {TABLE_BETS} WHERE user = '{username}' AND sport_name IN {sports} AND leagues IN {leagues}", ttl=600)['bookmaker'].tolist()
+  return conn.query(f"SELECT DISTINCT(bookmaker) FROM {TABLE_BETS} WHERE user = '{username}' AND sport_name IN {sports} AND league_name IN {leagues}", ttl=600)['bookmaker'].tolist()
 
 
 @st.cache_data(ttl=10)
 def get_user_unique_tags(username: str, sports: str, leagues: str, bookmakers: str):
 
-  return conn.query(f"SELECT DISTINCT(tag) FROM {TABLE_BETS} WHERE user = '{username}' AND sport_name IN {sports} AND leagues IN {leagues} AND bookmaker IN {bookmakers}", ttl=600)['tag'].tolist()
+  return conn.query(f"SELECT DISTINCT(tag) FROM {TABLE_BETS} WHERE user = '{username}' AND sport_name IN {sports} AND league_name IN {leagues} AND bookmaker IN {bookmakers}", ttl=600)['tag'].tolist()
