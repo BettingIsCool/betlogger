@@ -46,7 +46,7 @@ def get_bets(username: str, sport_ids: str):
 
 def get_user_unique_sports(username: str):
 
-  return conn.query(f"SELECT DISTINCT(sport_name) FROM {TABLE_BETS} WHERE user = '{username}'", ttl=600)
+  return conn.query(f"SELECT DISTINCT(sport_name) FROM {TABLE_BETS} WHERE user = '{username}'")
 
 
 def get_user_unique_leagues(username: str):
