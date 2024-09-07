@@ -133,12 +133,15 @@ if authentication_status:
               data.update({'runner_away': event_details[selected_event_id]['runner_away']})
               data.update({'market': selected_market})
               data.update({'period': selected_period})
-              data.update({'period_name': PERIODS[selected_period]})
+              data.update({'period_name': period_options[selected_period]})
+              data.update({'side_name': side_options[selected_side]})
               data.update({'side': selected_side})
               data.update({'raw_line': selected_line}) if selected_line is not None else data.update({'raw_line': None})
+              data.update({'line': line_options[selected_line]})
               data.update({'odds': odds})
               data.update({'stake': stake})
               data.update({'bookmaker': book})
+              data.update({'bet_added': datetime.now()})
 
               bet_added = st.sidebar.button('Add bet')
 
