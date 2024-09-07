@@ -40,9 +40,9 @@ def append_bet(data: dict):
 
 
 @st.cache_data(ttl=10)
-def get_bets(user: str, sport_id: int, bookmaker: str, tag: str, date_from: datetime, date_to: datetime):
+def get_bets(user: str, sport_ids: str):
 
-  return conn.query(f"SELECT tag, starts, sport_name, league_name, runner_home, runner_away, market, period_name, side_name, line, odds, stake, bookmaker, bet_status, score_home, score_away, profit, ev, clv, bet_added FROM {TABLE_BETS} WHERE user = '{user}' AND sport_id = {sport_id} AND bookmaker = {bookmaker} AND tag = {tag} AND DATE(starts) >= '{date_from.strftime('%Y-%m-%d')}' AND DATE(f.starts) <= '{date_to.strftime('%Y-%m-%d')}' ORDER BY starts", ttl=600).to_dict('records')
+  return conn.query(f"SELECT tag, starts, sport_name, league_name, runner_home, runner_away, market, period_name, side_name, line, odds, stake, bookmaker, bet_status, score_home, score_away, profit, ev, clv, bet_added FROM {TABLE_BETS} WHERE user = '{user}' AND sport_id IN {sport_ids} ORDER BY starts", ttl=600).to_dict('records')
 
 
 @st.cache_data(ttl=10)
