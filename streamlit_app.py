@@ -167,7 +167,7 @@ if authentication_status:
 
   
   
-  #bets = get_bets(username=username, sport_ids=selected_sports)
+  #bets = get_bets(username=username, sports=selected_sports, leagues=selected_leagues, bookmakers=selected_bookmakers, tags=selected_tags)
                 
                 
     
