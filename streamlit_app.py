@@ -198,7 +198,7 @@ if authentication_status:
           selected_starts = [f"'{s}'" for s in selected_tags]
           selected_starts = f"({','.join(selected_tags)})"
 
-          if selected_starts != '()'
+          if selected_starts != '()':
 
             bets = db.get_bets(username=username, sports=selected_sports, leagues=selected_leagues, bookmakers=selected_bookmakers, tags=selected_tags)
             
