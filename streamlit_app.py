@@ -193,7 +193,7 @@ if authentication_status:
         if selected_tags != '()':
           
           user_unique_starts = db.get_user_unique_starts(username=username, sports=selected_sports, leagues=selected_leagues, bookmakers=selected_bookmakers, tags=selected_tags)
-         
+          st.write(user_unique_starts)
           selected_starts = [f"'{s}'" for s in selected_tags]
           selected_starts = f"({','.join(selected_tags)})"
 
