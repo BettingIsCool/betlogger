@@ -58,12 +58,12 @@ def get_user_unique_leagues(username: str):
 
 
 @st.cache_data(ttl=10)
-def get_user_unique_bookmaker(username: str):
+def get_user_unique_bookmakers(username: str):
 
   return conn.query(f"SELECT DISTINCT(bookmaker) FROM {TABLE_BETS} WHERE user = {username}", ttl=600)
 
 
 @st.cache_data(ttl=10)
-def get_user_unique_tag(username: str):
+def get_user_unique_tags(username: str):
 
   return conn.query(f"SELECT DISTINCT(tag) FROM {TABLE_BETS} WHERE user = {username}", ttl=600)
