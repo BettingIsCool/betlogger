@@ -165,6 +165,10 @@ if authentication_status:
   # Apply filter to recorded bets
   st.sidebar.write('Apply filters to your bets')
 
+  refresh_table = st.button('Refresh table')
+  if refresh_table:
+    st.cache_data.clear()
+
   user_unique_sports = db.get_user_unique_sports(username=username)
   selected_sports = st.sidebar.multiselect(label='Sports', options=sorted(user_unique_sports), default=user_unique_sports)
   selected_sports = [f"'{s}'" for s in selected_sports]
@@ -216,8 +220,6 @@ if authentication_status:
     
     for id in bets_df.loc[(bets_df['DEL'] == True), 'ID'].tolist():
       db.delete_bet(id=id)
-    
-    st.write(bets_df)
-      
+   
                 
     
