@@ -1,4 +1,5 @@
 import datetime
+import pandas as pd
 import streamlit as st
 import db_pinnacle as db
 import streamlit_authenticator as stauth
