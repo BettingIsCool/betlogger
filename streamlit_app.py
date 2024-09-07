@@ -215,7 +215,7 @@ if authentication_status:
             if delete_bets and bets_to_be_deleted:
               
               for id in bets_to_be_deleted:
-                db_imr.delete_bet(id=id)
+                db.delete_bet(id=id)
 
               st.cache_data.clear()
               
