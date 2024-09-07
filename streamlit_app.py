@@ -151,21 +151,21 @@ if authentication_status:
   selected_sports = [f"'{s}'" for s in selected_sports]
   selected_sports = f"({','.join(selected_sports)})"
 
-  if user_unique_sports is not None:
+  if selected_sports is not None:
 
     user_unique_leagues = db.get_user_unique_leagues(username=username, sports=selected_sports)
     selected_leagues = st.sidebar.multiselect(label='Leagues', options=sorted(user_unique_leagues), default=user_unique_leagues)
     selected_leagues = [f"'{s}'" for s in selected_leagues]
     selected_leagues = f"({','.join(selected_leagues)})"
 
-    if user_unique_leagues is not None:
+    if selected_leagues is not None:
   
       user_unique_bookmakers = db.get_user_unique_bookmakers(username=username, sports=selected_sports, leagues=selected_leagues)
       selected_bookmakers = st.sidebar.multiselect(label='Bookmakers', options=sorted(user_unique_bookmakers), default=user_unique_bookmakers)
       selected_bookmakers = [f"'{s}'" for s in selected_bookmakers]
       selected_bookmakers = f"({','.join(selected_bookmakers)})"
 
-      if user_unique_bookmakers is not None:
+      if selected_bookmakers is not None:
     
         user_unique_tags = db.get_user_unique_tags(username=username, sports=selected_sports, leagues=selected_leagues, bookmakers=selected_bookmakers)
         selected_tags = st.sidebar.multiselect(label='Tags', options=sorted(user_unique_tags), default=user_unique_tags)
