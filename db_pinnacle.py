@@ -48,13 +48,13 @@ def get_bets(username: str, sport_ids: str):
 @st.cache_data(ttl=10)
 def get_user_unique_sports(username: str):
 
-  return conn.query(f"SELECT DISTINCT(sport_id) FROM {TABLE_BETS} WHERE user = '{username}'", ttl=600)
+  return conn.query(f"SELECT DISTINCT(sport_name) FROM {TABLE_BETS} WHERE user = '{username}'", ttl=600)
 
 
 @st.cache_data(ttl=10)
 def get_user_unique_leagues(username: str):
 
-  return conn.query(f"SELECT DISTINCT(league_id) FROM {TABLE_BETS} WHERE user = '{username}'", ttl=600)
+  return conn.query(f"SELECT DISTINCT(league_name) FROM {TABLE_BETS} WHERE user = '{username}'", ttl=600)
 
 
 @st.cache_data(ttl=10)
