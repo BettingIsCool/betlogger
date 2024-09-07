@@ -10,12 +10,20 @@ import streamlit_authenticator as stauth
 
 from config import SPORTS, PERIODS, BOOKS
 
+# Start of helper functions 
+
 def delete_bets(bets_to_be_deleted):
 
   for id in bets_to_be_deleted:
     db.delete_bet(id=id)
+  st.cache_data.clear()
 
-    st.cache_data.clear()
+
+def refresh_table():
+
+  st.cache_data.clear()
+
+# End of helper functions
 
 
 # Fetch all active users from database
