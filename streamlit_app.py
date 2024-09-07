@@ -4,6 +4,8 @@ import streamlit as st
 import db_pinnacle as db
 import streamlit_authenticator as stauth
 
+st.set_page_config(layout="wide")
+
 from config import SPORTS, PERIODS, BOOKS
 
 # Fetch all active users from database
