@@ -153,6 +153,8 @@ if authentication_status:
 
   if selected_sports is not None:
 
+    st.write(selected_sports)
+
     user_unique_leagues = db.get_user_unique_leagues(username=username, sports=selected_sports)
     selected_leagues = st.sidebar.multiselect(label='Leagues', options=sorted(user_unique_leagues), default=user_unique_leagues)
     selected_leagues = [f"'{s}'" for s in selected_leagues]
