@@ -44,3 +44,26 @@ def get_bets(user: str, sport_id: int, bookmaker: str, tag: str, date_from: date
 
   return conn.query(f"SELECT tag, starts, sport_name, league_name, runner_home, runner_away, market, period_name, side_name, line, odds, stake, bookmaker, bet_status, score_home, score_away, profit, ev, clv, bet_added FROM {TABLE_BETS} WHERE user = '{user}' AND sport_id = {sport_id} AND bookmaker = {bookmaker} AND tag = {tag} AND DATE(starts) >= '{date_from.strftime('%Y-%m-%d')}' AND DATE(f.starts) <= '{date_to.strftime('%Y-%m-%d')}' ORDER BY starts", ttl=600).to_dict('records')
 
+
+@st.cache_data(ttl=10)
+def get_user_unique_sports(username: str):
+
+  return conn.query(f"SELECT DISTINCT(sport_id) FROM {TABLE_BETS} WHERE user = {username}", ttl=600)
+
+
+@st.cache_data(ttl=10)
+def get_user_unique_leagues(username: str):
+
+  return conn.query(f"SELECT DISTINCT(league_id) FROM {TABLE_BETS} WHERE user = {username}", ttl=600)
+
+
+@st.cache_data(ttl=10)
+def get_user_unique_bookmaker(username: str):
+
+  return conn.query(f"SELECT DISTINCT(bookmaker) FROM {TABLE_BETS} WHERE user = {username}", ttl=600)
+
+
+@st.cache_data(ttl=10)
+def get_user_unique_tag(username: str):
+
+  return conn.query(f"SELECT DISTINCT(tag) FROM {TABLE_BETS} WHERE user = {username}", ttl=600)
