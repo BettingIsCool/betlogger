@@ -39,9 +39,10 @@ def get_bets(username: str, sports: str, leagues: str, bookmakers: str, tags: st
   return conn.query(f"SELECT tag, starts, sport_name, league_name, runner_home, runner_away, market, period_name, side_name, line, odds, stake, bookmaker, bet_status, score_home, score_away, profit, ev, clv, bet_added FROM {TABLE_BETS} WHERE user = '{username}' AND sport_name IN {sports} AND leagues IN {leagues} AND bookmaker IN {bookmakers} AND tag in {tags} ORDER BY starts").to_dict('records')
 
 
+@st.cache_data(ttl=10)
 def get_user_unique_sports(username: str):
 
-  return conn.query(f"SELECT DISTINCT(sport_name) FROM {TABLE_BETS} WHERE user = '{username}'")
+  return conn.query(f"SELECT DISTINCT(sport_name) FROM {TABLE_BETS} WHERE user = '{username}'", ttl=600)
 
 
 def get_user_unique_leagues(username: str):
