@@ -41,8 +41,6 @@ def append_bet(data: dict):
 @st.cache_data(ttl=10)
 def get_bets(username: str, sports: str, leagues: str, bookmakers: str, tags: str):
 
-  st.write(f"SELECT tag, starts, sport_name, league_name, runner_home, runner_away, market, period_name, side_name, line, odds, stake, bookmaker, bet_status, score_home, score_away, profit, ev, clv, bet_added FROM {TABLE_BETS} WHERE user = '{username}' AND sport_name IN {sports} AND league_name IN {leagues} AND bookmaker IN {bookmakers} AND tag in {tags} ORDER BY starts")
-
   return conn.query(f"SELECT tag, starts, sport_name, league_name, runner_home, runner_away, market, period_name, side_name, line, odds, stake, bookmaker, bet_status, score_home, score_away, profit, ev, clv, bet_added FROM {TABLE_BETS} WHERE user = '{username}' AND sport_name IN {sports} AND league_name IN {leagues} AND bookmaker IN {bookmakers} AND tag in {tags} ORDER BY starts", ttl=600).to_dict('records')
 
 
