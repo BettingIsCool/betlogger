@@ -144,11 +144,16 @@ if authentication_status:
 
   # Apply filter to recorded bets
   st.sidebar.write('Apply filters to your bets')
+  
   user_unique_sports = db.get_user_unique_sports(username=username)
-
   selected_sports = st.sidebar.multiselect(label='Sports', options=sorted(user_unique_sports), default=user_unique_sports)
   selected_sports = [f"'{s}'" for s in selected_sports]
   selected_sports = f"({','.join(selected_sports)})"
+
+  user_unique_leagues = db.get_user_unique_leagues(username=username)
+  selected_leagues = st.sidebar.multiselect(label='Leagues', options=sorted(user_unique_leagues), default=user_unique_leagues)
+  selected_leagues = [f"'{s}'" for s in selected_leagues]
+  selected_leagues = f"({','.join(selected_leagues)})"
 
   
   
