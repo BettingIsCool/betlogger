@@ -158,6 +158,8 @@ if authentication_status:
     selected_leagues = [f"'{s}'" for s in selected_leagues]
     selected_leagues = f"({','.join(selected_leagues)})"
 
+    st.write(selected_leagues)
+
     if selected_leagues is not None:
   
       user_unique_bookmakers = db.get_user_unique_bookmakers(username=username, sports=selected_sports, leagues=selected_leagues)
