@@ -175,10 +175,11 @@ if authentication_status:
         selected_tags = st.sidebar.multiselect(label='Tags', options=sorted(user_unique_tags), default=user_unique_tags)
         selected_tags = [f"'{s}'" for s in selected_tags]
         selected_tags = f"({','.join(selected_tags)})"
+        
+        bets = get_bets(username=username, sports=selected_sports, leagues=selected_leagues, bookmakers=selected_bookmakers, tags=selected_tags)
 
-  
-  
-  #bets = get_bets(username=username, sports=selected_sports, leagues=selected_leagues, bookmakers=selected_bookmakers, tags=selected_tags)
+        bets_df = pd.DataFrame(bets)
+        st.write(bets)
                 
                 
     
