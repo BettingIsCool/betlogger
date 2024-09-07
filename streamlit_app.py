@@ -6,8 +6,6 @@ import streamlit_authenticator as stauth
 
 from config import SPORTS, PERIODS, BOOKS
 
-st.set_page_config(layout="wide")
-
 # Fetch all active users from database
 users = db.get_users()
 
@@ -146,6 +144,8 @@ if authentication_status:
 
   # Apply filter to recorded bets
   st.sidebar.write('Apply filters to your bets')
+
+  st.set_page_config(layout="wide")
   
   user_unique_sports = db.get_user_unique_sports(username=username)
   selected_sports = st.sidebar.multiselect(label='Sports', options=sorted(user_unique_sports), default=user_unique_sports)
