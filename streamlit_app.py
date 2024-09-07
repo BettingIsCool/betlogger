@@ -202,6 +202,7 @@ if authentication_status:
             bets = db.get_bets(username=username, sports=selected_sports, leagues=selected_leagues, bookmakers=selected_bookmakers, tags=selected_tags, date_from=selected_date_from, date_to=selected_date_to)
             
             bets_df = pd.DataFrame(data=bets)
+            st.write(bets_df)
             
             bets_df = bets_df.rename(columns={'delete_bet': 'DEL', 'id': 'ID', 'tag': 'TAG', 'starts': 'STARTS', 'sport_name': 'SPORT', 'league_name': 'LEAGUE', 'runner_home': 'RUNNER_HOME', 'runner_away': 'RUNNER_AWAY', 'market': 'MARKET', 'period_name': 'PERIOD', 'side_name': 'SIDE', 'line': 'LINE', 'odds': 'ODDS', 'stake': 'STAKE', 'bookmaker': 'BOOK', 'bet_status': 'STATUS', 'score_home': 'SH', 'score_away': 'SA', 'profit': 'P/L', 'ev': 'EXP WIN', 'clv': 'CLV%', 'bet_added': 'BET_ADDED'})
             bets_df = bets_df[['DEL', 'TAG', 'STARTS', 'SPORT', 'LEAGUE', 'RUNNER_HOME', 'RUNNER_AWAY', 'MARKET', 'PERIOD', 'SIDE', 'LINE', 'ODDS', 'STAKE', 'BOOK', 'STATUS', 'SH', 'SA', 'P/L', 'EXP_WIN', 'CLV%', 'BET_ADDED']]
