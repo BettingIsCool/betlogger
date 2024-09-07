@@ -212,11 +212,13 @@ if authentication_status:
             bets_to_be_deleted = bets_df.loc[(bets_df['DEL'] == True), 'ID'].tolist()
             st.write(bets_to_be_deleted)
 
-            if delete_bets and bets_to_be_deleted:
+            if delete_bets:
               
               for id in bets_to_be_deleted:
                 db.delete_bet(id=id)
-                st.cache_data.clear()
+              
+              time.sleep(1)
+              st.cache_data.clear()
               
             #st.dataframe(data=bets_df, hide_index=True)                
                 
