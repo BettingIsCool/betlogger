@@ -151,20 +151,26 @@ if authentication_status:
   selected_sports = [f"'{s}'" for s in selected_sports]
   selected_sports = f"({','.join(selected_sports)})"
 
-  user_unique_leagues = db.get_user_unique_leagues(username=username)
-  selected_leagues = st.sidebar.multiselect(label='Leagues', options=sorted(user_unique_leagues), default=user_unique_leagues)
-  selected_leagues = [f"'{s}'" for s in selected_leagues]
-  selected_leagues = f"({','.join(selected_leagues)})"
+  if user_unique_sports is not None:
 
-  user_unique_bookmakers = db.get_user_unique_bookmakers(username=username)
-  selected_bookmakers = st.sidebar.multiselect(label='Bookmakers', options=sorted(user_unique_bookmakers), default=user_unique_bookmakers)
-  selected_bookmakers = [f"'{s}'" for s in selected_bookmakers]
-  selected_bookmakers = f"({','.join(selected_bookmakers)})"
+    user_unique_leagues = db.get_user_unique_leagues(username=username, sports=selected_sports)
+    selected_leagues = st.sidebar.multiselect(label='Leagues', options=sorted(user_unique_leagues), default=user_unique_leagues)
+    selected_leagues = [f"'{s}'" for s in selected_leagues]
+    selected_leagues = f"({','.join(selected_leagues)})"
 
-  user_unique_tags = db.get_user_unique_tags(username=username)
-  selected_tags = st.sidebar.multiselect(label='Tags', options=sorted(user_unique_tags), default=user_unique_tags)
-  selected_tags = [f"'{s}'" for s in selected_tags]
-  selected_tags = f"({','.join(selected_tags)})"
+    if user_unique_leagues is not None:
+  
+      user_unique_bookmakers = db.get_user_unique_bookmakers(username=username, sports=selected_sports, leagues=selected_leagues)
+      selected_bookmakers = st.sidebar.multiselect(label='Bookmakers', options=sorted(user_unique_bookmakers), default=user_unique_bookmakers)
+      selected_bookmakers = [f"'{s}'" for s in selected_bookmakers]
+      selected_bookmakers = f"({','.join(selected_bookmakers)})"
+
+      if user_unique_bookmakers is not None:
+    
+        user_unique_tags = db.get_user_unique_tags(username=username, sports=selected_sports, leagues=selected_leagues, bookmakers=selected_bookmakers)
+        selected_tags = st.sidebar.multiselect(label='Tags', options=sorted(user_unique_tags), default=user_unique_tags)
+        selected_tags = [f"'{s}'" for s in selected_tags]
+        selected_tags = f"({','.join(selected_tags)})"
 
   
   
