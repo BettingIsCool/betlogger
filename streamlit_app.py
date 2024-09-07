@@ -216,8 +216,7 @@ if authentication_status:
               
               for id in bets_to_be_deleted:
                 db.delete_bet(id=id)
-
-              st.cache_data.clear()
+                st.cache_data.clear()
               
             #st.dataframe(data=bets_df, hide_index=True)                
                 
