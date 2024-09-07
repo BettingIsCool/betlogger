@@ -71,6 +71,4 @@ def get_user_unique_tags(username: str, sports: str, leagues: str, bookmakers: s
 @st.cache_data(ttl=10)
 def get_user_unique_starts(username: str, sports: str, leagues: str, bookmakers: str, tags: str):
 
-  st.write(f"SELECT DISTINCT(starts) FROM {TABLE_BETS} WHERE user = '{username}' AND sport_name IN {sports} AND league_name IN {leagues} AND bookmaker IN {bookmakers} AND tag IN {tags}")
-
   return conn.query(f"SELECT DISTINCT(starts) FROM {TABLE_BETS} WHERE user = '{username}' AND sport_name IN {sports} AND league_name IN {leagues} AND bookmaker IN {bookmakers} AND tag IN {tags}", ttl=600)['starts'].tolist()
