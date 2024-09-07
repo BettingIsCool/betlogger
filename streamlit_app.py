@@ -159,6 +159,7 @@ if authentication_status:
                       if bet_added:
         
                         db.append_bet(data=data)
+                        st.cache_data.clear()
 
   # Apply filter to recorded bets
   st.sidebar.write('Apply filters to your bets')
