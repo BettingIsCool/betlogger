@@ -141,6 +141,8 @@ if authentication_status:
 
                 st.write(data)
                 db.append_bet(data=data)
+
+  bets = get_bets(user=username, sport_id=sport_id, bookmaker=bookmaker, tag=tag, date_from=datefrom, date_to=date_to)
                 
                 
     
