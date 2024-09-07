@@ -152,7 +152,7 @@ if authentication_status:
 
   print(selected_sports)
   
-  bets = get_bets(user=username, sport_id=sport_id, bookmaker=bookmaker, tag=tag, date_from=datefrom, date_to=date_to)
+  bets = get_bets(username=username, sport_ids=selected_sports)
                 
                 
     
