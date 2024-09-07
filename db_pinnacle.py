@@ -73,4 +73,4 @@ def get_user_unique_starts(username: str, sports: str, leagues: str, bookmakers:
 
   st.write(f"SELECT DISTINCT(starts) FROM {TABLE_BETS} WHERE user = '{username}' AND sport_name IN {sports} AND league_name IN {leagues} AND bookmaker IN {bookmakers} AND tag IN {tags}")
 
-  return conn.query(f"SELECT DISTINCT(starts) FROM {TABLE_BETS} WHERE user = '{username}' AND sport_name IN {sports} AND league_name IN {leagues} AND bookmaker IN {bookmakers} AND tag IN {tags}", ttl=600)['tag'].tolist()
+  return conn.query(f"SELECT DISTINCT(starts) FROM {TABLE_BETS} WHERE user = '{username}' AND sport_name IN {sports} AND league_name IN {leagues} AND bookmaker IN {bookmakers} AND tag IN {tags}", ttl=600)['starts'].tolist()
