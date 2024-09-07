@@ -149,6 +149,8 @@ if authentication_status:
   selected_sports = st.sidebar.multiselect(label='Sports', options=sorted(unique_sports), default=unique_sports)
   selected_sports = [f"'{s}'" for s in selected_sports]
   selected_sports = f"({','.join(selected_sports)})"
+
+  print(selected_sports)
   
   bets = get_bets(user=username, sport_id=sport_id, bookmaker=bookmaker, tag=tag, date_from=datefrom, date_to=date_to)
                 
