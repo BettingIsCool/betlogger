@@ -66,3 +66,9 @@ def get_user_unique_bookmakers(username: str, sports: str, leagues: str):
 def get_user_unique_tags(username: str, sports: str, leagues: str, bookmakers: str):
 
   return conn.query(f"SELECT DISTINCT(tag) FROM {TABLE_BETS} WHERE user = '{username}' AND sport_name IN {sports} AND league_name IN {leagues} AND bookmaker IN {bookmakers}", ttl=600)['tag'].tolist()
+
+
+@st.cache_data(ttl=10)
+def get_user_unique_starts(username: str, sports: str, leagues: str, bookmakers: str, tags: str):
+
+  return conn.query(f"SELECT DISTINCT(starts) FROM {TABLE_BETS} WHERE user = '{username}' AND sport_name IN {sports} AND league_name IN {leagues} AND bookmaker IN {bookmakers} AND tag IN {tags}", ttl=600)['tag'].tolist()
