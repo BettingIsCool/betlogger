@@ -192,9 +192,17 @@ if authentication_status:
         
         if selected_tags != '()':
 
-          bets = db.get_bets(username=username, sports=selected_sports, leagues=selected_leagues, bookmakers=selected_bookmakers, tags=selected_tags)
-          
-          bets_df = pd.DataFrame(data=bets)
-          st.dataframe(data=bets_df, hide_index=True)                
+          user_unique_starts = db.get_user_unique_starts(username=username, sports=selected_sports, leagues=selected_leagues, bookmakers=selected_bookmakers, tags=tags)
+          st.write(user_unique_starts)
+         
+          selected_starts = [f"'{s}'" for s in selected_tags]
+          selected_starts = f"({','.join(selected_tags)})"
+
+          if selected_starts != '()'
+
+            bets = db.get_bets(username=username, sports=selected_sports, leagues=selected_leagues, bookmakers=selected_bookmakers, tags=selected_tags)
+            
+            bets_df = pd.DataFrame(data=bets)
+            st.dataframe(data=bets_df, hide_index=True)                
                 
     
