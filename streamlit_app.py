@@ -6,6 +6,8 @@ import streamlit_authenticator as stauth
 
 from config import SPORTS, PERIODS, BOOKS
 
+st.set_page_config(layout="wide")
+
 # Fetch all active users from database
 users = db.get_users()
 
