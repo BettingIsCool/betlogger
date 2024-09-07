@@ -193,7 +193,6 @@ if authentication_status:
         if selected_tags != '()':
           
           user_unique_starts = db.get_user_unique_starts(username=username, sports=selected_sports, leagues=selected_leagues, bookmakers=selected_bookmakers, tags=selected_tags)
-          st.write(user_unique_starts)
 
           if user_unique_starts is not None:
 
