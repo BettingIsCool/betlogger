@@ -31,10 +31,10 @@ def get_users():
 
 def append_bet(data: dict):
 
-  query = f"INSERT INTO {TABLE_BETS} (user, tag, starts, sport_id, sport_name, league_id, league_name, event_id, runner_home, runner_away, market, period, side, raw_line, odds, stake, bookmaker) VALUES(:user, :tag, :starts, :sport_id, :sport_name, :league_id, :league_name, :event_id, :runner_home, :runner_away, :market, :period, :side, :raw_line, :odds, :stake, :bookmaker)"
+  query = f"INSERT INTO {TABLE_BETS} (user, tag, starts, sport_id, sport_name, league_id, league_name, event_id, runner_home, runner_away, market, period, period_name, side, side_name, raw_line, line, odds, stake, bookmaker, bet_added) VALUES(:user, :tag, :starts, :sport_id, :sport_name, :league_id, :league_name, :event_id, :runner_home, :runner_away, :market, :period, :period_name, :side, :side_name, :raw_line, :line, :odds, :stake, :bookmaker, :bet_added)"
  
   with conn.session as session:
-    session.execute(text(query), params = dict(user = data['user'], tag = data['tag'], starts = data['starts'], sport_id = data['sport_id'], sport_name = data['sport_name'], league_id = data['league_id'], league_name = data['league_name'], event_id = data['event_id'], runner_home = data['runner_home'], runner_away = data['runner_away'], market = data['market'], period = data['period'], side = data['side'], raw_line = data['raw_line'], odds = data['odds'], stake = data['stake'], bookmaker = data['bookmaker']))
+    session.execute(text(query), params = dict(user = data['user'], tag = data['tag'], starts = data['starts'], sport_id = data['sport_id'], sport_name = data['sport_name'], league_id = data['league_id'], league_name = data['league_name'], event_id = data['event_id'], runner_home = data['runner_home'], runner_away = data['runner_away'], market = data['market'], period = data['period'], period_name = data['period_name'], side = data['side'], side_name = data['side_name'], raw_line = data['raw_line'], line = data['line'], odds = data['odds'], stake = data['stake'], bookmaker = data['bookmaker'], bet_added = data['bet_added']))
     session.commit()
 
 
