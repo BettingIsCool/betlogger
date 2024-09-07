@@ -10,7 +10,7 @@ import streamlit_authenticator as stauth
 
 from config import SPORTS, PERIODS, BOOKS
 
-def delete_bet():
+def delete_bets():
 
   for id in bets_df.loc[(bets_df['DEL'] == True), 'ID'].tolist():
     db.delete_bet(id=id)
