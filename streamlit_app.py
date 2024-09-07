@@ -10,6 +10,14 @@ import streamlit_authenticator as stauth
 
 from config import SPORTS, PERIODS, BOOKS
 
+def delete_bet():
+
+  for id in bets_df.loc[(bets_df['DEL'] == True), 'ID'].tolist():
+    db.delete_bet(id=id)
+
+    st.cache_data.clear()
+
+
 # Fetch all active users from database
 users = db.get_users()
 
@@ -213,14 +221,16 @@ if authentication_status:
 
             bets_df = st.data_editor(bets_df, column_config={"DEL": st.column_config.CheckboxColumn("DEL", help="Select if you want to delete this bet!", default=False)}, disabled=['TAG', 'STARTS', 'SPORT', 'LEAGUE', 'RUNNER_HOME', 'RUNNER_AWAY', 'MARKET', 'PERIOD', 'SIDE', 'LINE', 'ODDS', 'STAKE', 'BOOK', 'STATUS', 'SH', 'SA', 'P/L', 'EXP_WIN', 'CLV%', 'BET_ADDED', 'ID'], hide_index=True)
   
-  delete_bets = st.button('Delete selected bet(s)')
+  #delete_bets = st.button('Delete selected bet(s)')
   bets_to_be_deleted = bets_df.loc[(bets_df['DEL'] == True), 'ID'].tolist()
 
-  if delete_bets and bets_to_be_deleted:
-    
-    for id in bets_df.loc[(bets_df['DEL'] == True), 'ID'].tolist():
-      db.delete_bet(id=id)
+  st.button("'Delete selected bet(s)'", on_click=delete_bets)
+  
+  #if delete_bets and bets_to_be_deleted:
+  #  
+  #  for id in bets_df.loc[(bets_df['DEL'] == True), 'ID'].tolist():
+  #    db.delete_bet(id=id)#
 
-      st.cache_data.clear()
+  #    st.cache_data.clear()
                 
     
