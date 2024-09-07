@@ -174,6 +174,8 @@ if authentication_status:
         if selected_tags is not None:
         
           bets = db.get_bets(username=username, sports=selected_sports, leagues=selected_leagues, bookmakers=selected_bookmakers, tags=selected_tags)
+          
+          st.write(bets)
           bets_df = pd.DataFrame(bets)
           st.write(bets_df)                
                 
