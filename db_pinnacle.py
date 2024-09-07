@@ -41,19 +41,19 @@ def get_bets(username: str, sport_ids: str):
 
 def get_user_unique_sports(username: str):
 
-  return conn.query(f"SELECT DISTINCT(sport_name) FROM {TABLE_BETS} WHERE user = '{username}'").tolist()
+  return conn.query(f"SELECT DISTINCT(sport_name) FROM {TABLE_BETS} WHERE user = '{username}'")['sport_name'].tolist()
 
 
 def get_user_unique_leagues(username: str):
 
-  return conn.query(f"SELECT DISTINCT(league_name) FROM {TABLE_BETS} WHERE user = '{username}'").tolist()
+  return conn.query(f"SELECT DISTINCT(league_name) FROM {TABLE_BETS} WHERE user = '{username}'")['league_name'].tolist()
 
 
 def get_user_unique_bookmakers(username: str):
 
-  return conn.query(f"SELECT DISTINCT(bookmaker) FROM {TABLE_BETS} WHERE user = '{username}'").tolist()
+  return conn.query(f"SELECT DISTINCT(bookmaker) FROM {TABLE_BETS} WHERE user = '{username}'")['bookmaker'].tolist()
 
 
 def get_user_unique_tags(username: str):
 
-  return conn.query(f"SELECT DISTINCT(tag) FROM {TABLE_BETS} WHERE user = '{username}'").tolist()
+  return conn.query(f"SELECT DISTINCT(tag) FROM {TABLE_BETS} WHERE user = '{username}'")['tag'].tolist()
