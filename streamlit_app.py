@@ -205,8 +205,8 @@ if authentication_status:
             st.write(bets_df)
             
             bets_df = bets_df.rename(columns={'delete_bet': 'DEL', 'id': 'ID', 'tag': 'TAG', 'starts': 'STARTS', 'sport_name': 'SPORT', 'league_name': 'LEAGUE', 'runner_home': 'RUNNER_HOME', 'runner_away': 'RUNNER_AWAY', 'market': 'MARKET', 'period_name': 'PERIOD', 'side_name': 'SIDE', 'line': 'LINE', 'odds': 'ODDS', 'stake': 'STAKE', 'bookmaker': 'BOOK', 'bet_status': 'STATUS', 'score_home': 'SH', 'score_away': 'SA', 'profit': 'P/L', 'ev': 'EXP WIN', 'clv': 'CLV%', 'bet_added': 'BET_ADDED'})
-            bets_df = bets_df[['DEL', 'TAG', 'STARTS', 'SPORT', 'LEAGUE', 'RUNNER_HOME', 'RUNNER_AWAY', 'MARKET', 'PERIOD', 'SIDE', 'LINE', 'ODDS', 'STAKE', 'BOOK', 'STATUS', 'SH', 'SA']]
-            # , , 'P/L', 'EXP_WIN', 'CLV%', 'BET_ADDED'
+            bets_df = bets_df[['DEL', 'TAG', 'STARTS', 'SPORT', 'LEAGUE', 'RUNNER_HOME', 'RUNNER_AWAY', 'MARKET', 'PERIOD', 'SIDE', 'LINE', 'ODDS', 'STAKE', 'BOOK', 'STATUS', 'SH', 'SA', 'P/L', 'EXP_WIN']]
+            # , , , 'CLV%', 'BET_ADDED'
             
             st.dataframe(data=bets_df, hide_index=True)                
                 
