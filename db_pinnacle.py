@@ -42,7 +42,7 @@ def get_bets(username: str, sports: str, leagues: str, bookmakers: str, tags: st
 @st.cache_data(ttl=10)
 def get_user_unique_sports(username: str):
 
-  return conn.query(f"SELECT DISTINCT(sport_name) FROM {TABLE_BETS} WHERE user = '{username}'", ttl=600)
+  return conn.query(f"SELECT DISTINCT(sport_name) FROM {TABLE_BETS} WHERE user = '{username}'", ttl=600)['sport_name'].tolist()
 
 
 def get_user_unique_leagues(username: str):
