@@ -152,15 +152,11 @@ if authentication_status:
   selected_sports = f"({','.join(selected_sports)})"
 
   if selected_sports is not None:
-
-    st.write(selected_sports)
-
+    
     user_unique_leagues = db.get_user_unique_leagues(username=username, sports=selected_sports)
     selected_leagues = st.sidebar.multiselect(label='Leagues', options=sorted(user_unique_leagues), default=user_unique_leagues)
     selected_leagues = [f"'{s}'" for s in selected_leagues]
     selected_leagues = f"({','.join(selected_leagues)})"
-
-    st.write(selected_leagues)
 
     if selected_leagues is not None:
   
@@ -176,7 +172,7 @@ if authentication_status:
         selected_tags = [f"'{s}'" for s in selected_tags]
         selected_tags = f"({','.join(selected_tags)})"
         
-        bets = get_bets(username=username, sports=selected_sports, leagues=selected_leagues, bookmakers=selected_bookmakers, tags=selected_tags)
+        bets = db.get_bets(username=username, sports=selected_sports, leagues=selected_leagues, bookmakers=selected_bookmakers, tags=selected_tags)
 
         bets_df = pd.DataFrame(bets)
         st.write(bets)
