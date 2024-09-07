@@ -172,6 +172,8 @@ if authentication_status:
         selected_tags = f"({','.join(selected_tags)})"
         
         if selected_tags:
+
+          st.write(selected_sports, selected_leagues, selected_bookmakers, selected_tags)
         
           bets = db.get_bets(username=username, sports=selected_sports, leagues=selected_leagues, bookmakers=selected_bookmakers, tags=selected_tags)
           
