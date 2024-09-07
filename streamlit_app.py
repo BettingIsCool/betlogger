@@ -195,6 +195,6 @@ if authentication_status:
           bets = db.get_bets(username=username, sports=selected_sports, leagues=selected_leagues, bookmakers=selected_bookmakers, tags=selected_tags)
           
           bets_df = pd.DataFrame(data=bets)
-          st.dataframe(data=bets_df, width=10000, hide_index=True)                
+          st.dataframe(data=bets_df, hide_index=True)                
                 
     
