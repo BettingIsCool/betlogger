@@ -208,6 +208,7 @@ if authentication_status:
             bets_df = bets_df[['DEL', 'TAG', 'STARTS', 'SPORT', 'LEAGUE', 'RUNNER_HOME', 'RUNNER_AWAY', 'MARKET', 'PERIOD', 'SIDE', 'LINE', 'ODDS', 'STAKE', 'BOOK', 'STATUS', 'SH', 'SA', 'P/L', 'EXP_WIN', 'CLV%', 'BET_ADDED', 'ID']]
 
             delete_bets = st.button('Delete selected bet(s)')
+            refresh_table = st.button('Refresh')
             bets_df = st.data_editor(bets_df, column_config={"DEL": st.column_config.CheckboxColumn("DEL", help="Select if you want to delete this bet!", default=False)}, disabled=['TAG', 'STARTS', 'SPORT', 'LEAGUE', 'RUNNER_HOME', 'RUNNER_AWAY', 'MARKET', 'PERIOD', 'SIDE', 'LINE', 'ODDS', 'STAKE', 'BOOK', 'STATUS', 'SH', 'SA', 'P/L', 'EXP_WIN', 'CLV%', 'BET_ADDED', 'ID'], hide_index=True)
 
             bets_to_be_deleted = bets_df.loc[(bets_df['DEL'] == True), 'ID'].tolist()
@@ -219,6 +220,9 @@ if authentication_status:
                 db.delete_bet(id=id)
               
               time.sleep(1)
+              st.cache_data.clear()
+
+            if refresh_table:
               st.cache_data.clear()
               
             #st.dataframe(data=bets_df, hide_index=True)                
