@@ -29,19 +29,10 @@ def get_users():
   return conn.query(f"SELECT name, username, password FROM {TABLE_USERS}", ttl=600).to_dict('records')
 
 
-def append_bet(data: dict):
-
-  query = f"INSERT INTO {TABLE_BETS} (user, tag, starts, sport_id, sport_name, league_id, league_name, event_id, runner_home, runner_away, market, period, period_name, side, side_name, raw_line, line, odds, stake, bookmaker, bet_added) VALUES(:user, :tag, :starts, :sport_id, :sport_name, :league_id, :league_name, :event_id, :runner_home, :runner_away, :market, :period, :period_name, :side, :side_name, :raw_line, :line, :odds, :stake, :bookmaker, :bet_added)"
- 
-  with conn.session as session:
-    session.execute(text(query), params = dict(user = data['user'], tag = data['tag'], starts = data['starts'], sport_id = data['sport_id'], sport_name = data['sport_name'], league_id = data['league_id'], league_name = data['league_name'], event_id = data['event_id'], runner_home = data['runner_home'], runner_away = data['runner_away'], market = data['market'], period = data['period'], period_name = data['period_name'], side = data['side'], side_name = data['side_name'], raw_line = data['raw_line'], line = data['line'], odds = data['odds'], stake = data['stake'], bookmaker = data['bookmaker'], bet_added = data['bet_added']))
-    session.commit()
-
-
 @st.cache_data(ttl=10)
 def get_bets(username: str, sports: str, leagues: str, bookmakers: str, tags: str, date_from: datetime, date_to: datetime):
 
-  return conn.query(f"SELECT tag, starts, sport_name, league_name, runner_home, runner_away, market, period_name, side_name, line, odds, stake, bookmaker, bet_status, score_home, score_away, profit, ev, clv, bet_added FROM {TABLE_BETS} WHERE user = '{username}' AND sport_name IN {sports} AND league_name IN {leagues} AND bookmaker IN {bookmakers} AND tag in {tags} AND DATE(starts) >= '{date_from.strftime('%Y-%m-%d')}' AND DATE(starts) <= '{date_to.strftime('%Y-%m-%d')}' ORDER BY starts", ttl=600).to_dict('records')
+  return conn.query(f"SELECT id, tag, starts, sport_name, league_name, runner_home, runner_away, market, period_name, side_name, line, odds, stake, bookmaker, bet_status, score_home, score_away, profit, ev, clv, bet_added FROM {TABLE_BETS} WHERE user = '{username}' AND sport_name IN {sports} AND league_name IN {leagues} AND bookmaker IN {bookmakers} AND tag in {tags} AND DATE(starts) >= '{date_from.strftime('%Y-%m-%d')}' AND DATE(starts) <= '{date_to.strftime('%Y-%m-%d')}' ORDER BY starts", ttl=600).to_dict('records')
 
 
 @st.cache_data(ttl=10)
@@ -72,3 +63,21 @@ def get_user_unique_tags(username: str, sports: str, leagues: str, bookmakers: s
 def get_user_unique_starts(username: str, sports: str, leagues: str, bookmakers: str, tags: str):
 
   return conn.query(f"SELECT DISTINCT(starts) FROM {TABLE_BETS} WHERE user = '{username}' AND sport_name IN {sports} AND league_name IN {leagues} AND bookmaker IN {bookmakers} AND tag IN {tags}", ttl=600)['starts'].tolist()
+
+
+def append_bet(data: dict):
+
+  query = f"INSERT INTO {TABLE_BETS} (user, tag, starts, sport_id, sport_name, league_id, league_name, event_id, runner_home, runner_away, market, period, period_name, side, side_name, raw_line, line, odds, stake, bookmaker, bet_added) VALUES(:user, :tag, :starts, :sport_id, :sport_name, :league_id, :league_name, :event_id, :runner_home, :runner_away, :market, :period, :period_name, :side, :side_name, :raw_line, :line, :odds, :stake, :bookmaker, :bet_added)"
+ 
+  with conn.session as session:
+    session.execute(text(query), params = dict(user = data['user'], tag = data['tag'], starts = data['starts'], sport_id = data['sport_id'], sport_name = data['sport_name'], league_id = data['league_id'], league_name = data['league_name'], event_id = data['event_id'], runner_home = data['runner_home'], runner_away = data['runner_away'], market = data['market'], period = data['period'], period_name = data['period_name'], side = data['side'], side_name = data['side_name'], raw_line = data['raw_line'], line = data['line'], odds = data['odds'], stake = data['stake'], bookmaker = data['bookmaker'], bet_added = data['bet_added']))
+    session.commit()
+
+
+def delete_bet(id: int):
+
+  query = f"DELETE FROM {TABLE_BETS} WHERE id = {id}"
+
+  with conn.session as session:
+    session.execute(text(query))
+    session.commit()
