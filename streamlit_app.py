@@ -171,8 +171,10 @@ if authentication_status:
         selected_tags = [f"'{s}'" for s in selected_tags]
         selected_tags = f"({','.join(selected_tags)})"
         
-        bets = db.get_bets(username=username, sports=selected_sports, leagues=selected_leagues, bookmakers=selected_bookmakers, tags=selected_tags)
-        bets_df = pd.DataFrame(bets)
-        st.write(bets_df)                
+        if selected_tags is not None:
+        
+          bets = db.get_bets(username=username, sports=selected_sports, leagues=selected_leagues, bookmakers=selected_bookmakers, tags=selected_tags)
+          bets_df = pd.DataFrame(bets)
+          st.write(bets_df)                
                 
     
