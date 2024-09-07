@@ -197,8 +197,8 @@ if authentication_status:
 
           if user_unique_starts is not None:
 
-            selected_date_from = st.sidebar.date_input(label='Select start date', value = 'min', min_value=min(user_unique_starts), max_value=max(user_unique_starts), help='Specify the start date for analyzing your bets (= those in the table on the right side). You can either use the calendar or manually enter the date, i.e. 2024/08/19.')
-            selected_date_to = st.sidebar.date_input(label='Select end date', value = 'max', min_value=min(user_unique_starts), max_value=max(user_unique_starts), help='Specify the end date for analyzing your bets (= those in the table on the right side). You can either use the calendar or manually enter the date, i.e. 2024/08/19.')
+            selected_date_from = st.sidebar.date_input(label='Select start date', value = min(user_unique_starts), min_value=min(user_unique_starts), max_value=max(user_unique_starts), help='Specify the start date for analyzing your bets (= those in the table on the right side). You can either use the calendar or manually enter the date, i.e. 2024/08/19.')
+            selected_date_to = st.sidebar.date_input(label='Select end date', value = max(user_unique_starts), min_value=min(user_unique_starts), max_value=max(user_unique_starts), help='Specify the end date for analyzing your bets (= those in the table on the right side). You can either use the calendar or manually enter the date, i.e. 2024/08/19.')
             
             bets = db.get_bets(username=username, sports=selected_sports, leagues=selected_leagues, bookmakers=selected_bookmakers, tags=selected_tags, date_from=selected_date_from, date_to=selected_date_to)
             
