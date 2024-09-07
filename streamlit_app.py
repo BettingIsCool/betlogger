@@ -148,13 +148,13 @@ if authentication_status:
 
   print(user_unique_sports)
   
-  selected_sports = st.sidebar.multiselect(label='Sports', options=sorted(user_unique_sports), default=user_unique_sports)
-  selected_sports = [f"'{s}'" for s in selected_sports]
-  selected_sports = f"({','.join(selected_sports)})"
+  #selected_sports = st.sidebar.multiselect(label='Sports', options=sorted(user_unique_sports), default=user_unique_sports)
+  #selected_sports = [f"'{s}'" for s in selected_sports]
+  #selected_sports = f"({','.join(selected_sports)})"
 
   
   
-  bets = get_bets(username=username, sport_ids=selected_sports)
+  #bets = get_bets(username=username, sport_ids=selected_sports)
                 
                 
     
