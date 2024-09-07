@@ -142,6 +142,14 @@ if authentication_status:
                 st.write(data)
                 db.append_bet(data=data)
 
+  # Apply filter to recorded bets
+  st.sidebar.write('Apply filters to your bets')
+  user_unique_sports = db.get_user_unique_sports(username=username)
+  
+  selected_sports = st.sidebar.multiselect(label='Sports', options=sorted(unique_sports), default=unique_sports)
+  selected_sports = [f"'{s}'" for s in selected_sports]
+  selected_sports = f"({','.join(selected_sports)})"
+  
   bets = get_bets(user=username, sport_id=sport_id, bookmaker=bookmaker, tag=tag, date_from=datefrom, date_to=date_to)
                 
                 
