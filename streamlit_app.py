@@ -165,6 +165,13 @@ if authentication_status:
   # Apply filter to recorded bets
   st.sidebar.write('Apply filters to your bets')
 
+  delete_bets = st.button('Delete selected bet(s)')
+
+  if delete_bets:
+    
+    for id in bets_df.loc[(bets_df['DEL'] == True), 'ID'].tolist():
+      db.delete_bet(id=id)
+
   user_unique_sports = db.get_user_unique_sports(username=username)
   selected_sports = st.sidebar.multiselect(label='Sports', options=sorted(user_unique_sports), default=user_unique_sports)
   selected_sports = [f"'{s}'" for s in selected_sports]
@@ -207,23 +214,7 @@ if authentication_status:
             bets_df = bets_df.rename(columns={'delete_bet': 'DEL', 'id': 'ID', 'tag': 'TAG', 'starts': 'STARTS', 'sport_name': 'SPORT', 'league_name': 'LEAGUE', 'runner_home': 'RUNNER_HOME', 'runner_away': 'RUNNER_AWAY', 'market': 'MARKET', 'period_name': 'PERIOD', 'side_name': 'SIDE', 'line': 'LINE', 'odds': 'ODDS', 'stake': 'STAKE', 'bookmaker': 'BOOK', 'bet_status': 'STATUS', 'score_home': 'SH', 'score_away': 'SA', 'profit': 'P/L', 'ev': 'EXP_WIN', 'clv': 'CLV%', 'bet_added': 'BET_ADDED'})
             bets_df = bets_df[['DEL', 'TAG', 'STARTS', 'SPORT', 'LEAGUE', 'RUNNER_HOME', 'RUNNER_AWAY', 'MARKET', 'PERIOD', 'SIDE', 'LINE', 'ODDS', 'STAKE', 'BOOK', 'STATUS', 'SH', 'SA', 'P/L', 'EXP_WIN', 'CLV%', 'BET_ADDED', 'ID']]
 
-            delete_bets = st.button('Delete selected bet(s)')
-            refresh_table = st.button('Refresh')
             bets_df = st.data_editor(bets_df, column_config={"DEL": st.column_config.CheckboxColumn("DEL", help="Select if you want to delete this bet!", default=False)}, disabled=['TAG', 'STARTS', 'SPORT', 'LEAGUE', 'RUNNER_HOME', 'RUNNER_AWAY', 'MARKET', 'PERIOD', 'SIDE', 'LINE', 'ODDS', 'STAKE', 'BOOK', 'STATUS', 'SH', 'SA', 'P/L', 'EXP_WIN', 'CLV%', 'BET_ADDED', 'ID'], hide_index=True)
-
-            bets_to_be_deleted = bets_df.loc[(bets_df['DEL'] == True), 'ID'].tolist()
-            st.write(bets_to_be_deleted)
-
-            if delete_bets:
-              
-              for id in bets_to_be_deleted:
-                db.delete_bet(id=id)
-              
-              time.sleep(1)
-              st.cache_data.clear()
-
-            if refresh_table:
-              st.cache_data.clear()
               
             #st.dataframe(data=bets_df, hide_index=True)                
                 
