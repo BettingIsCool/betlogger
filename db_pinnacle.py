@@ -34,9 +34,9 @@ def append_bet(data: dict):
     session.commit()
 
 
-def get_bets(username: str, sport_ids: str):
+def get_bets(username: str, sports: str, leagues: str, bookmakers: str, tags: str):
 
-  return conn.query(f"SELECT tag, starts, sport_name, league_name, runner_home, runner_away, market, period_name, side_name, line, odds, stake, bookmaker, bet_status, score_home, score_away, profit, ev, clv, bet_added FROM {TABLE_BETS} WHERE user = '{username}' AND sport_id IN {sport_ids} ORDER BY starts").to_dict('records')
+  return conn.query(f"SELECT tag, starts, sport_name, league_name, runner_home, runner_away, market, period_name, side_name, line, odds, stake, bookmaker, bet_status, score_home, score_away, profit, ev, clv, bet_added FROM {TABLE_BETS} WHERE user = '{username}' AND sport_name IN {sports} AND leagues IN {leagues} AND bookmaker IN {bookmakers} AND tag in {tags} ORDER BY starts").to_dict('records')
 
 
 def get_user_unique_sports(username: str):
