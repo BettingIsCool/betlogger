@@ -155,6 +155,16 @@ if authentication_status:
   selected_leagues = [f"'{s}'" for s in selected_leagues]
   selected_leagues = f"({','.join(selected_leagues)})"
 
+  user_unique_bookmakers = db.get_user_unique_bookmakers(username=username)
+  selected_bookmakers = st.sidebar.multiselect(label='Bookmakers', options=sorted(user_unique_bookmakers), default=user_unique_bookmakers)
+  selected_bookmakers = [f"'{s}'" for s in selected_bookmakers]
+  selected_bookmakers = f"({','.join(selected_bookmakers)})"
+
+  user_unique_tags = db.get_user_unique_tags(username=username)
+  selected_tags = st.sidebar.multiselect(label='Tags', options=sorted(user_unique_tags), default=user_unique_tags)
+  selected_tags = [f"'{s}'" for s in selected_tags]
+  selected_tags = f"({','.join(selected_tags)})"
+
   
   
   #bets = get_bets(username=username, sport_ids=selected_sports)
