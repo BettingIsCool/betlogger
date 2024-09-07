@@ -143,7 +143,7 @@ if authentication_status:
                 data.update({'odds': odds})
                 data.update({'stake': stake})
                 data.update({'bookmaker': book})
-                data.update({'bet_added': datetime.now()})
+                data.update({'bet_added': datetime.datetime.now()})
   
                 bet_added = st.sidebar.button('Add bet')
   
