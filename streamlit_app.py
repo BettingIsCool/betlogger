@@ -165,13 +165,6 @@ if authentication_status:
   # Apply filter to recorded bets
   st.sidebar.write('Apply filters to your bets')
 
-  delete_bets = st.button('Delete selected bet(s)')
-
-  if delete_bets:
-    
-    for id in bets_df.loc[(bets_df['DEL'] == True), 'ID'].tolist():
-      db.delete_bet(id=id)
-
   user_unique_sports = db.get_user_unique_sports(username=username)
   selected_sports = st.sidebar.multiselect(label='Sports', options=sorted(user_unique_sports), default=user_unique_sports)
   selected_sports = [f"'{s}'" for s in selected_sports]
@@ -215,7 +208,13 @@ if authentication_status:
             bets_df = bets_df[['DEL', 'TAG', 'STARTS', 'SPORT', 'LEAGUE', 'RUNNER_HOME', 'RUNNER_AWAY', 'MARKET', 'PERIOD', 'SIDE', 'LINE', 'ODDS', 'STAKE', 'BOOK', 'STATUS', 'SH', 'SA', 'P/L', 'EXP_WIN', 'CLV%', 'BET_ADDED', 'ID']]
 
             bets_df = st.data_editor(bets_df, column_config={"DEL": st.column_config.CheckboxColumn("DEL", help="Select if you want to delete this bet!", default=False)}, disabled=['TAG', 'STARTS', 'SPORT', 'LEAGUE', 'RUNNER_HOME', 'RUNNER_AWAY', 'MARKET', 'PERIOD', 'SIDE', 'LINE', 'ODDS', 'STAKE', 'BOOK', 'STATUS', 'SH', 'SA', 'P/L', 'EXP_WIN', 'CLV%', 'BET_ADDED', 'ID'], hide_index=True)
-              
-            #st.dataframe(data=bets_df, hide_index=True)                
+  
+  delete_bets = st.button('Delete selected bet(s)')
+
+  if delete_bets:
+    
+    for id in bets_df.loc[(bets_df['DEL'] == True), 'ID'].tolist():
+      db.delete_bet(id=id)
+      
                 
     
