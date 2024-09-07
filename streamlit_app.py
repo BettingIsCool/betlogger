@@ -115,39 +115,41 @@ if authentication_status:
                 
                 selected_line = st.sidebar.selectbox(label='Select line', options=line_options.keys(), index=None, format_func=lambda x: line_options.get(x), help='Only lines with available closing odds are listed.')
 
-              odds = st.sidebar.number_input("Enter odds", min_value=1.001, value=2.000, step=0.01, format="%0.3f")
-              stake = st.sidebar.number_input("Enter stake", min_value=0.01, value=1.00, step=1.00, format="%0.2f")
-              book = st.sidebar.selectbox("Select bookmaker", options=sorted(BOOKS))
-              tag = st.sidebar.text_input("Enter tag", max_chars=25, help='You can add a custom string to classify this bet as something that you may want to research in a future analysis. This could be a particular strategy that you are following, a tipster, etc.')
+              if selected_side is not None:
+                
+                odds = st.sidebar.number_input("Enter odds", min_value=1.001, value=2.000, step=0.01, format="%0.3f")
+                stake = st.sidebar.number_input("Enter stake", min_value=0.01, value=1.00, step=1.00, format="%0.2f")
+                book = st.sidebar.selectbox("Select bookmaker", options=sorted(BOOKS))
+                tag = st.sidebar.text_input("Enter tag", max_chars=25, help='You can add a custom string to classify this bet as something that you may want to research in a future analysis. This could be a particular strategy that you are following, a tipster, etc.')
+    
+                data = dict()
+                data.update({'user': username})
+                data.update({'tag': tag})
+                data.update({'starts': event_details[selected_event_id]['starts']})
+                data.update({'sport_id': SPORTS[selected_sport]})
+                data.update({'sport_name': selected_sport})
+                data.update({'league_id': event_details[selected_event_id]['league_id']})
+                data.update({'league_name': event_details[selected_event_id]['league_name']})
+                data.update({'event_id': selected_event_id})  
+                data.update({'runner_home': event_details[selected_event_id]['runner_home']})
+                data.update({'runner_away': event_details[selected_event_id]['runner_away']})
+                data.update({'market': selected_market})
+                data.update({'period': selected_period})
+                data.update({'period_name': period_options[selected_period]})
+                data.update({'side_name': side_options[selected_side]})
+                data.update({'side': selected_side})
+                data.update({'raw_line': selected_line}) if selected_line is not None else data.update({'raw_line': None})
+                data.update({'line': line_options[selected_line]})
+                data.update({'odds': odds})
+                data.update({'stake': stake})
+                data.update({'bookmaker': book})
+                data.update({'bet_added': datetime.now()})
   
-              data = dict()
-              data.update({'user': username})
-              data.update({'tag': tag})
-              data.update({'starts': event_details[selected_event_id]['starts']})
-              data.update({'sport_id': SPORTS[selected_sport]})
-              data.update({'sport_name': selected_sport})
-              data.update({'league_id': event_details[selected_event_id]['league_id']})
-              data.update({'league_name': event_details[selected_event_id]['league_name']})
-              data.update({'event_id': selected_event_id})  
-              data.update({'runner_home': event_details[selected_event_id]['runner_home']})
-              data.update({'runner_away': event_details[selected_event_id]['runner_away']})
-              data.update({'market': selected_market})
-              data.update({'period': selected_period})
-              data.update({'period_name': period_options[selected_period]})
-              data.update({'side_name': side_options[selected_side]})
-              data.update({'side': selected_side})
-              data.update({'raw_line': selected_line}) if selected_line is not None else data.update({'raw_line': None})
-              data.update({'line': line_options[selected_line]})
-              data.update({'odds': odds})
-              data.update({'stake': stake})
-              data.update({'bookmaker': book})
-              data.update({'bet_added': datetime.now()})
-
-              bet_added = st.sidebar.button('Add bet')
-
-              if bet_added:
-
-                db.append_bet(data=data)
+                bet_added = st.sidebar.button('Add bet')
+  
+                if bet_added:
+  
+                  db.append_bet(data=data)
 
   # Apply filter to recorded bets
   st.sidebar.write('Apply filters to your bets')
