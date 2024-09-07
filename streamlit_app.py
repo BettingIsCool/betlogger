@@ -221,7 +221,6 @@ if authentication_status:
     for id in bets_df.loc[(bets_df['DEL'] == True), 'ID'].tolist():
       db.delete_bet(id=id)
 
-  st.cache_data.clear()
-   
+      st.cache_data.clear()
                 
     
