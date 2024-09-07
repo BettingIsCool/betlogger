@@ -10,9 +10,9 @@ import streamlit_authenticator as stauth
 
 from config import SPORTS, PERIODS, BOOKS
 
-def delete_bets():
+def delete_bets(bets_to_be_deleted):
 
-  for id in bets_df.loc[(bets_df['DEL'] == True), 'ID'].tolist():
+  for id in bets_to_be_deleted:
     db.delete_bet(id=id)
 
     st.cache_data.clear()
@@ -224,7 +224,7 @@ if authentication_status:
   #delete_bets = st.button('Delete selected bet(s)')
   bets_to_be_deleted = bets_df.loc[(bets_df['DEL'] == True), 'ID'].tolist()
 
-  st.button("'Delete selected bet(s)'", on_click=delete_bets)
+  st.button('Delete selected bet(s)', on_click=delete_bets, args=(bets_to_be_deleted,))
   
   #if delete_bets and bets_to_be_deleted:
   #  
