@@ -181,9 +181,7 @@ if authentication_status:
   # Apply filter to recorded bets
   st.sidebar.write('Apply filters to your bets')
 
-  refresh_table = st.button('Refresh table')
-  if refresh_table:
-    st.cache_data.clear()
+  refresh_table = st.button('Refresh Table', onclick=refresh_table)
 
   user_unique_sports = db.get_user_unique_sports(username=username)
   selected_sports = st.sidebar.multiselect(label='Sports', options=sorted(user_unique_sports), default=user_unique_sports)
