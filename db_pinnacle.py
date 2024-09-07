@@ -36,4 +36,11 @@ def append_bet(data: dict):
  
   with conn.session as session:
     session.execute(text(query), params = dict(user = data['user'], tag = data['tag'], starts = data['starts'], sport_id = data['sport_id'], sport_name = data['sport_name'], league_id = data['league_id'], league_name = data['league_name'], event_id = data['event_id'], runner_home = data['runner_home'], runner_away = data['runner_away'], market = data['market'], period = data['period'], side = data['side'], raw_line = data['raw_line'], odds = data['odds'], stake = data['stake']))
-    session.commit()  
+    session.commit()
+
+
+@st.cache_data(ttl=10)
+def get_bets(user: str, sport_id: int, bookmaker: str, tag: str, date_from: datetime, date_to: datetime):
+
+  return conn.query(f"SELECT tag, starts, sport_name, league_name, runner_home, runner_away, market, period_name, side_name, line, odds, stake, bookmaker, bet_status, score_home, score_away, profit, ev, clv, bet_added FROM {TABLE_BETS} WHERE user = '{user}' AND sport_id = {sport_id} AND bookmaker = {bookmaker} AND tag = {tag} AND DATE(starts) >= '{date_from.strftime('%Y-%m-%d')}' AND DATE(f.starts) <= '{date_to.strftime('%Y-%m-%d')}' ORDER BY starts", ttl=600).to_dict('records')
+
