@@ -167,7 +167,7 @@ if authentication_status:
                         data.update({'period_name': period_options[selected_period]})
                         data.update({'side_name': side_options[selected_side]})
                         data.update({'side': selected_side})
-                        #data.update({'raw_line': selected_line}) if selected_line is not None else data.update({'raw_line': None})
+                        data.update({'raw_line': selected_line})
                         #data.update({'line': line_options[selected_line]}) if selected_line is not None else data.update({'line': None})
                         #data.update({'odds': odds})
                         #data.update({'stake': stake})
