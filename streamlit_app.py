@@ -78,7 +78,7 @@ if authentication_status:
         if selected_event_id is not None:
   
           odds = db.get_odds(event_id=selected_event_id)
-          selected_market = st.sidebar.selectbox(label='Select market', options=odds.market.unique(), index=0, help='Only markets with available closing odds are listed.')
+          selected_market = st.sidebar.selectbox(label='Select market', options=odds.market.unique(), index=None, help='Only markets with available closing odds are listed.')
   
           if selected_market is not None:
   
