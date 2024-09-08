@@ -27,7 +27,7 @@ def refresh_table():
 def color_cells(val):
 
   if isinstance(val, str):
-    if val > in ('HW', 'W'):
+    if val in ('HW', 'W'):
       color = 'green'
     elif val in ('HL', 'L'):
       color = 'red'
