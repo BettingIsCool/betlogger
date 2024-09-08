@@ -87,7 +87,7 @@ if authentication_status:
               if row['market'] == selected_market and row['period'] not in period_options.keys():
                 period_options.update({row['period']: PERIODS[(SPORTS[selected_sport], row['period'])]})
   
-            selected_period = st.sidebar.selectbox(label='Select period', options=period_options.keys(), index=0, format_func=lambda x: period_options.get(x), help='Only periods with available closing odds are listed.')
+            selected_period = st.sidebar.selectbox(label='Select period', options=period_options.keys(), index=None, format_func=lambda x: period_options.get(x), help='Only periods with available closing odds are listed.')
   
             if selected_period is not None:
   
