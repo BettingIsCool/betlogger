@@ -150,6 +150,29 @@ if authentication_status:
                       if book:
                         
                         tag = st.sidebar.text_input("Enter tag", max_chars=25, help='You can add a custom string to classify this bet as something that you may want to research in a future analysis. This could be a particular strategy that you are following, a tipster, etc.')
+
+                        data = dict()
+                        data.update({'user': username})
+                        data.update({'tag': tag})
+                        data.update({'starts': event_details[selected_event_id]['starts']})
+                        data.update({'sport_id': SPORTS[selected_sport]})
+                        data.update({'sport_name': selected_sport})
+                        data.update({'league_id': event_details[selected_event_id]['league_id']})
+                        data.update({'league_name': event_details[selected_event_id]['league_name']})
+                        data.update({'event_id': selected_event_id})  
+                        data.update({'runner_home': event_details[selected_event_id]['runner_home']})
+                        data.update({'runner_away': event_details[selected_event_id]['runner_away']})
+                        data.update({'market': selected_market})
+                        data.update({'period': selected_period})
+                        data.update({'period_name': period_options[selected_period]})
+                        data.update({'side_name': side_options[selected_side]})
+                        data.update({'side': selected_side})
+                        data.update({'raw_line': selected_line}) if selected_line is not None else data.update({'raw_line': None})
+                        data.update({'line': line_options[selected_line]}) if selected_line is not None else data.update({'line': None})
+                        data.update({'odds': odds})
+                        data.update({'stake': stake})
+                        data.update({'bookmaker': book})
+                        data.update({'bet_added': datetime.datetime.now()})
                 
 
   # Apply filter to recorded bets
