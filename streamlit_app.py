@@ -142,11 +142,7 @@ if authentication_status:
                   if odds:
                   
                     stake = st.sidebar.number_input("Enter stake", min_value=0.01, value=1.00, step=1.00, format="%0.2f")
-
-                  if odds:
-                  
-                    stake = st.sidebar.number_input("Enter stake", min_value=0.01, value=1.00, step=1.00, format="%0.2f")
-  
+ 
                     if stake:
                       
                       book = st.sidebar.selectbox("Select bookmaker", options=sorted(BOOKS))
