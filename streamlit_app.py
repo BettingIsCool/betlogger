@@ -148,8 +148,9 @@ if authentication_status:
   
                       if book:
                         
-                        tag = st.sidebar.text_input("Enter tag", max_chars=25, help='You can add a custom string to classify this bet as something that you may want to research in a future analysis. This could be a particular strategy that you are following, a tipster, etc.')
-          
+                        #tag = st.sidebar.text_input("Enter tag", max_chars=25, help='You can add a custom string to classify this bet as something that you may want to research in a future analysis. This could be a particular strategy that you are following, a tipster, etc.')
+                        tag = 'lulu'
+                        
                         data = dict()
                         data.update({'user': username})
                         data.update({'tag': tag})
