@@ -32,7 +32,7 @@ def color_cells(val):
     color = 'red'
   else:
     color = 'white'
- return f'color: {color}'
+  return f'color: {color}'
 
 # End of helper functions
 
