@@ -23,6 +23,17 @@ def refresh_table():
 
   st.cache_data.clear()
 
+
+def color_cells(val):
+
+  if val > 0 or val in ('W', 'HW'):
+    color = 'green'
+  elif val < 0 or val in ('L', 'HL'):
+    color = 'red'
+  else:
+    color = 'white'
+ return f'color: {color}'
+
 # End of helper functions
 
 
@@ -235,6 +246,11 @@ if authentication_status:
             bets_df = pd.DataFrame(data=bets)
             bets_df = bets_df.rename(columns={'delete_bet': 'DEL', 'id': 'ID', 'tag': 'TAG', 'starts': 'STARTS', 'sport_name': 'SPORT', 'league_name': 'LEAGUE', 'runner_home': 'RUNNER_HOME', 'runner_away': 'RUNNER_AWAY', 'market': 'MARKET', 'period_name': 'PERIOD', 'side_name': 'SIDE', 'line': 'LINE', 'odds': 'ODDS', 'stake': 'STAKE', 'bookmaker': 'BOOK', 'bet_status': 'STATUS', 'score_home': 'SH', 'score_away': 'SA', 'profit': 'P/L', 'cls_odds': 'CLS', 'true_cls': 'CLS_TRUE', 'cls_limit': 'CLS_LIMIT', 'ev': 'EXP_WIN', 'clv': 'CLV%', 'bet_added': 'BET_ADDED'})
             bets_df = bets_df[['DEL', 'TAG', 'STARTS', 'SPORT', 'LEAGUE', 'RUNNER_HOME', 'RUNNER_AWAY', 'MARKET', 'PERIOD', 'SIDE', 'LINE', 'ODDS', 'STAKE', 'BOOK', 'STATUS', 'SH', 'SA', 'P/L', 'CLS', 'CLS_TRUE', 'CLS_LIMIT', 'EXP_WIN', 'CLV%', 'BET_ADDED', 'ID']]
+
+            # Apply font & background colors to cells, apply number formatting
+            styled_df = bets_df.style.applymap(color_cells, subset=['STATUS', 'P/L', 'EXP_WIN', 'CLV%']).format({'LINE': '{:+g}'.format, 'ODDS': '{:,.3f}'.format, 'STAKE': '{}'.format, 'CLS_LIMIT': '{0:g}'.format)
+
+            
             bets_df = st.data_editor(bets_df, column_config={"DEL": st.column_config.CheckboxColumn("DEL", help="Select if you want to delete this bet!", default=False)}, disabled=['TAG', 'STARTS', 'SPORT', 'LEAGUE', 'RUNNER_HOME', 'RUNNER_AWAY', 'MARKET', 'PERIOD', 'SIDE', 'LINE', 'ODDS', 'STAKE', 'BOOK', 'STATUS', 'SH', 'SA', 'P/L', 'CLS', 'CLS_TRUE', 'CLS_LIMIT', 'EXP_WIN', 'CLV%', 'BET_ADDED', 'ID'], hide_index=True)
   
   #delete_bets = st.button('Delete selected bet(s)')
