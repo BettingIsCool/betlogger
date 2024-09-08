@@ -26,6 +26,7 @@ def refresh_table():
 
 def color_cells(val):
 
+  color = 'white'
   if val is not None:
     
     if isinstance(val, str):
@@ -33,17 +34,14 @@ def color_cells(val):
         color = 'green'
       elif val in ('HL', 'L'):
         color = 'red'
-      else:
-        color = 'white'
         
     else:
       if val > 0:
         color = 'green'
       elif val < 0:
         color = 'red'
-      else:
-        color = 'white'
-    return f'color: {color}'
+
+  return f'color: {color}'
 
 # End of helper functions
 
