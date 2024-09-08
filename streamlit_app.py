@@ -138,6 +138,10 @@ if authentication_status:
                 if (selected_line is None and selected_market == 'moneyline') or (selected_line is not None and selected_market != 'moneyline'):
                   
                   odds = st.sidebar.number_input("Enter odds", min_value=1.001, value=2.000, step=0.01, format="%0.3f")
+
+                  if odds:
+                  
+                    stake = st.sidebar.number_input("Enter stake", min_value=0.01, value=1.00, step=1.00, format="%0.2f")
                 
 
   # Apply filter to recorded bets
