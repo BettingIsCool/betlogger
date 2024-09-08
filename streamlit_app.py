@@ -26,7 +26,8 @@ def refresh_table():
 
 def color_cells(val):
 
-  if not isinstance(val, None):
+  if val is not None:
+    
     if isinstance(val, str):
       if val in ('HW', 'W'):
         color = 'green'
