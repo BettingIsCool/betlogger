@@ -26,22 +26,23 @@ def refresh_table():
 
 def color_cells(val):
 
-  if isinstance(val, str):
-    if val in ('HW', 'W'):
-      color = 'green'
-    elif val in ('HL', 'L'):
-      color = 'red'
+  if not isinstance(val, None):
+    if isinstance(val, str):
+      if val in ('HW', 'W'):
+        color = 'green'
+      elif val in ('HL', 'L'):
+        color = 'red'
+      else:
+        color = 'white'
+        
     else:
-      color = 'white'
-      
-  else:
-    if val > 0:
-      color = 'green'
-    elif val < 0:
-      color = 'red'
-    else:
-      color = 'white'
-  return f'color: {color}'
+      if val > 0:
+        color = 'green'
+      elif val < 0:
+        color = 'red'
+      else:
+        color = 'white'
+    return f'color: {color}'
 
 # End of helper functions
 
