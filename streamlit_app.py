@@ -132,7 +132,7 @@ if authentication_status:
                       else:
                         line_options.update({row['line']: row['line']})
                   
-                  selected_line = st.sidebar.selectbox(label='Select line', options=line_options.keys(), index=None, format_func=lambda x: line_options.get(x), help='Only lines with available closing odds are listed.')
+                  selected_line = st.sidebar.selectbox(label='Select line', options=line_options.keys(), index=0, format_func=lambda x: line_options.get(x), help='Only lines with available closing odds are listed.')
 
                 if (selected_line is None and selected_market == 'moneyline') or (selected_line is not None and selected_market != 'moneyline'):
                   
