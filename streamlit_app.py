@@ -170,10 +170,17 @@ if authentication_status:
                         data.update({'raw_line': selected_line})
                         if selected_line is not None:
                           data.update({'line': line_options[selected_line]})
-                        #data.update({'odds': odds})
-                        #data.update({'stake': stake})
-                        #data.update({'bookmaker': book})
-                        #data.update({'bet_added': datetime.datetime.now()})
+                        data.update({'odds': odds})
+                        data.update({'stake': stake})
+                        data.update({'bookmaker': book})
+                        data.update({'bet_added': datetime.datetime.now()})
+
+                        bet_added = st.sidebar.button('Add bet')
+          
+                        if bet_added:
+          
+                          db.append_bet(data=data)
+                          st.cache_data.clear()
                 
 
   # Apply filter to recorded bets
