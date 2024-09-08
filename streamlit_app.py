@@ -234,10 +234,10 @@ if authentication_status:
             
             bets_df = pd.DataFrame(data=bets)
             
-            bets_df = bets_df.rename(columns={'delete_bet': 'DEL', 'id': 'ID', 'tag': 'TAG', 'starts': 'STARTS', 'sport_name': 'SPORT', 'league_name': 'LEAGUE', 'runner_home': 'RUNNER_HOME', 'runner_away': 'RUNNER_AWAY', 'market': 'MARKET', 'period_name': 'PERIOD', 'side_name': 'SIDE', 'line': 'LINE', 'odds': 'ODDS', 'stake': 'STAKE', 'bookmaker': 'BOOK', 'bet_status': 'STATUS', 'score_home': 'SH', 'score_away': 'SA', 'profit': 'P/L', 'cls_odds': 'CLS_ODDS', 'true_cls': 'TRUE_CLS', 'ev': 'EXP_WIN', 'clv': 'CLV%', 'bet_added': 'BET_ADDED'})
-            bets_df = bets_df[['DEL', 'TAG', 'STARTS', 'SPORT', 'LEAGUE', 'RUNNER_HOME', 'RUNNER_AWAY', 'MARKET', 'PERIOD', 'SIDE', 'LINE', 'ODDS', 'STAKE', 'BOOK', 'STATUS', 'SH', 'SA', 'P/L', 'CLS_ODDS', 'TRUE_CLS', 'EXP_WIN', 'CLV%', 'BET_ADDED', 'ID']]
+            bets_df = bets_df.rename(columns={'delete_bet': 'DEL', 'id': 'ID', 'tag': 'TAG', 'starts': 'STARTS', 'sport_name': 'SPORT', 'league_name': 'LEAGUE', 'runner_home': 'RUNNER_HOME', 'runner_away': 'RUNNER_AWAY', 'market': 'MARKET', 'period_name': 'PERIOD', 'side_name': 'SIDE', 'line': 'LINE', 'odds': 'ODDS', 'stake': 'STAKE', 'bookmaker': 'BOOK', 'bet_status': 'STATUS', 'score_home': 'SH', 'score_away': 'SA', 'profit': 'P/L', 'cls_odds': 'CLS', 'true_cls': 'CLS_TRUE', 'ev': 'EXP_WIN', 'clv': 'CLV%', 'bet_added': 'BET_ADDED'})
+            bets_df = bets_df[['DEL', 'TAG', 'STARTS', 'SPORT', 'LEAGUE', 'RUNNER_HOME', 'RUNNER_AWAY', 'MARKET', 'PERIOD', 'SIDE', 'LINE', 'ODDS', 'STAKE', 'BOOK', 'STATUS', 'SH', 'SA', 'P/L', 'CLS', 'CLS_TRUE', 'EXP_WIN', 'CLV%', 'BET_ADDED', 'ID']]
 
-            bets_df = st.data_editor(bets_df, column_config={"DEL": st.column_config.CheckboxColumn("DEL", help="Select if you want to delete this bet!", default=False)}, disabled=['TAG', 'STARTS', 'SPORT', 'LEAGUE', 'RUNNER_HOME', 'RUNNER_AWAY', 'MARKET', 'PERIOD', 'SIDE', 'LINE', 'ODDS', 'STAKE', 'BOOK', 'STATUS', 'SH', 'SA', 'P/L', 'CLS_ODDS', 'TRUE_CLS', 'EXP_WIN', 'CLV%', 'BET_ADDED', 'ID'], hide_index=True)
+            bets_df = st.data_editor(bets_df, column_config={"DEL": st.column_config.CheckboxColumn("DEL", help="Select if you want to delete this bet!", default=False)}, disabled=['TAG', 'STARTS', 'SPORT', 'LEAGUE', 'RUNNER_HOME', 'RUNNER_AWAY', 'MARKET', 'PERIOD', 'SIDE', 'LINE', 'ODDS', 'STAKE', 'BOOK', 'STATUS', 'SH', 'SA', 'P/L', 'CLS', 'CLS_TRUE', 'EXP_WIN', 'CLV%', 'BET_ADDED', 'ID'], hide_index=True)
   
   #delete_bets = st.button('Delete selected bet(s)')
   bets_to_be_deleted = bets_df.loc[(bets_df['DEL'] == True), 'ID'].tolist()
