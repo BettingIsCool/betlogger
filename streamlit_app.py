@@ -26,9 +26,9 @@ def refresh_table():
 
 def color_cells(val):
 
-  if val > 0 or val in ('W', 'HW'):
+  if val > 0:
     color = 'green'
-  elif val < 0 or val in ('L', 'HL'):
+  elif val < 0:
     color = 'red'
   else:
     color = 'white'
