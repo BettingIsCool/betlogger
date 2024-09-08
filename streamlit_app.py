@@ -138,15 +138,15 @@ if authentication_status:
                   
                   odds = st.sidebar.number_input("Enter odds", min_value=1.001, value=2.000, step=0.01, format="%0.3f")
   
-                  if odds is not None:
+                  if odds:
                   
                     stake = st.sidebar.number_input("Enter stake", min_value=0.01, value=1.00, step=1.00, format="%0.2f")
   
-                    if stake is not None:
+                    if stake:
                       
                       book = st.sidebar.selectbox("Select bookmaker", options=sorted(BOOKS))
   
-                      if book is not None:
+                      if book:
                         
                         tag = st.sidebar.text_input("Enter tag", max_chars=25, help='You can add a custom string to classify this bet as something that you may want to research in a future analysis. This could be a particular strategy that you are following, a tipster, etc.')
           
