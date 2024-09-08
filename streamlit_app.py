@@ -248,7 +248,7 @@ if authentication_status:
             bets_df = bets_df[['DEL', 'TAG', 'STARTS', 'SPORT', 'LEAGUE', 'RUNNER_HOME', 'RUNNER_AWAY', 'MARKET', 'PERIOD', 'SIDE', 'LINE', 'ODDS', 'STAKE', 'BOOK', 'STATUS', 'SH', 'SA', 'P/L', 'CLS', 'CLS_TRUE', 'CLS_LIMIT', 'EXP_WIN', 'CLV%', 'BET_ADDED', 'ID']]
 
             # Apply font & background colors to cells, apply number formatting
-            styled_df = bets_df.style.applymap(color_cells, subset=['STATUS', 'P/L', 'EXP_WIN', 'CLV%']).format({'LINE': '{:+g}'.format, 'ODDS': '{:,.3f}'.format, 'STAKE': '{}'.format, 'CLS_LIMIT': '{0:g}'.format)
+            styled_df = bets_df.style.applymap(color_cells, subset=['STATUS', 'P/L', 'EXP_WIN', 'CLV%']).format({'LINE': '{:+g}'.format, 'ODDS': '{:,.3f}'.format, 'STAKE': '{}'.format, 'CLS_LIMIT': '{0:g}'.format})
 
             
             bets_df = st.data_editor(bets_df, column_config={"DEL": st.column_config.CheckboxColumn("DEL", help="Select if you want to delete this bet!", default=False)}, disabled=['TAG', 'STARTS', 'SPORT', 'LEAGUE', 'RUNNER_HOME', 'RUNNER_AWAY', 'MARKET', 'PERIOD', 'SIDE', 'LINE', 'ODDS', 'STAKE', 'BOOK', 'STATUS', 'SH', 'SA', 'P/L', 'CLS', 'CLS_TRUE', 'CLS_LIMIT', 'EXP_WIN', 'CLV%', 'BET_ADDED', 'ID'], hide_index=True)
