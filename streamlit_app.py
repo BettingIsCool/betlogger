@@ -278,7 +278,7 @@ if authentication_status:
             bets_to_be_deleted = df.loc[(df['DEL'] == True), 'ID'].tolist()
   
   if bets_to_be_deleted:
-    st.button('Delete selected bet(s)', on_click=delete_bets, args=(bets_to_be_deleted,))
+    st.button('Delete selected bet(s)', on_click=delete_bets, args=(bets_to_be_deleted,), type="primary")
 
   chart_data = pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"])
   st.line_chart(chart_data)
