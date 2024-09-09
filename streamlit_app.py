@@ -1,4 +1,4 @@
-import time
+  import time
 import datetime
 import numpy as np
 import pandas as pd
@@ -295,7 +295,20 @@ if authentication_status:
       color_ev = ':green'
 
     st.header(f"BETS: {bet_count} - TURNOVER: {turnover} - P/L: {color_profit}[{round(sum_profit, 2):+g}] - EXP_WIN: {color_ev}[{round(sum_ev, 2):+g}] - CLV: {color_clv}[{round(100 * clv, 2):+g}%]")
-    
+
+    cum_profit, cum_clv, dates = list(), list(), list()
+    cur_profit, cur_clv = 0.00, 0.00 
+    for index, row in df.iterrows():
+      if row['ST'] != 'na': 
+        cur_profit += row['P/L']
+        cur_clv += row['EXP_WIN']
+        
+        cum_profit.append(cur_profit)
+        cum_clv.append(cur_clv)
+        dates.append(row['STARTS'])
+
+    st.write(cum_profit)
+    st.write(cum_clv)
 
     chart_data = pd.DataFrame(np.random.randn(20, 2), columns=["Actual P/L", "CLV"])
     st.line_chart(chart_data)
