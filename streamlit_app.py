@@ -27,6 +27,8 @@ def refresh_table():
 
 def color_cells(val):
 
+  st.write(val)
+
   color = 'white'
   if val is not None:
     
