@@ -308,7 +308,7 @@ if authentication_status:
         dates.append(row['STARTS'])
 
 
-    chart_data = pd.DataFrame({"Dates": dates, "Actual P/L": cum_profit, "CLV": cum_clv}, columns=["a", "b", "c"])
+    chart_data = pd.DataFrame({"Dates": dates, "Actual P/L": cum_profit, "CLV": cum_clv}, columns=["Dates", "Actual P/L", "CLV"])
 
     st.line_chart(chart_data)
     #chart_data = pd.DataFrame(np.array([dates, cum_profit, cum_clv]), columns=["Date", "Actual P/L", "CLV"])
