@@ -215,6 +215,8 @@ if authentication_status:
                         bet_added = st.sidebar.button('Add bet')
           
                         if bet_added:
+
+                          st.write(data)
           
                           db.append_bet(data=data)
                           st.cache_data.clear()
