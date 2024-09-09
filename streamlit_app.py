@@ -226,6 +226,7 @@ if authentication_status:
   st.sidebar.write('Apply filters to your bets')
 
   refresh_table = st.button('Refresh Table', on_click=refresh_table)
+  st.button('Delete selected bet(s)', on_click=delete_bets, args=(bets_to_be_deleted,))
 
   user_unique_sports = db.get_user_unique_sports(username=username)
   selected_sports = st.sidebar.multiselect(label='Sports', options=sorted(user_unique_sports), default=user_unique_sports)
@@ -272,11 +273,10 @@ if authentication_status:
             styled_df = bets_df.style.applymap(color_cells, subset=['ST', 'P/L', 'EXP_WIN', 'CLV']).format({'LINE': '{:g}'.format, 'ODDS': '{:,.3f}'.format, 'STAKE': '{:,.2f}'.format, 'P/L': '{:,.2f}'.format, 'CLS': '{:,.3f}'.format, 'CLS_TRUE': '{:,.3f}'.format, 'CLS_LIMIT': '{0:g}'.format, 'EXP_WIN': '{:,.2f}'.format, 'CLV': '{:,.2%}'.format, 'SH': '{0:g}'.format, 'SA': '{0:g}'.format})
             
             df = st.data_editor(styled_df, column_config={"DEL": st.column_config.CheckboxColumn("DEL", help="Select if you want to delete this bet.", default=False)}, disabled=['TAG', 'STARTS', 'SPORT', 'LEAGUE', 'RUNNER_HOME', 'RUNNER_AWAY', 'MARKET', 'PERIOD', 'SIDE', 'LINE', 'ODDS', 'STAKE', 'BOOK', 'ST', 'SH', 'SA', 'P/L', 'CLS', 'CLS_TRUE', 'CLS_LIMIT', 'EXP_WIN', 'CLV', 'BET_ADDED', 'ID'], hide_index=True)
-            chart_data = pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"])
-            
             bets_to_be_deleted = df.loc[(df['DEL'] == True), 'ID'].tolist()
-            st.button('Delete selected bet(s)', on_click=delete_bets, args=(bets_to_be_deleted,))
             
+            chart_data = pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"])
+
             st.line_chart(chart_data)
 
   
