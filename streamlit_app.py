@@ -281,7 +281,7 @@ if authentication_status:
     st.button('Delete selected bet(s)', on_click=delete_bets, args=(bets_to_be_deleted,), type="primary")
 
   if len(df.index) > 0:
-    st.write(df['CLV'].sum())
+    st.write(f"CLV: {round(df['CLV'].sum(), 2)}")
     chart_data = pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"])
     st.line_chart(chart_data)
   
