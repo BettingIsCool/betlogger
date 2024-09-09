@@ -188,6 +188,15 @@ if authentication_status:
                         data.update({'period_name': period_options[selected_period]})
                         data.update({'side_name': side_options[selected_side]})
                         data.update({'side': selected_side})
+                        data.update({'bet_status': 'na'})
+                        data.update({'score_home': 0})
+                        data.update({'score_away': 0})
+                        data.update({'profit': 0.00})
+                        data.update({'cls_odds': 0.00})
+                        data.update({'true_cls': 0.00})
+                        data.update({'cls_limit': 0.00})
+                        data.update({'ev': 0.00})
+                        data.update({'clv': 0.00})
                         
                         if selected_line is not None:
                           data.update({'raw_line': selected_line})
