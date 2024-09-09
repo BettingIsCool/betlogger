@@ -11,6 +11,8 @@ import streamlit_authenticator as stauth
 
 from config import SPORTS, PERIODS, BOOKS
 
+bets_to_be_deleted = set()
+
 # Start of helper functions 
 
 def delete_bets(bets_to_be_deleted):
