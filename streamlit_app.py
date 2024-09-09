@@ -307,15 +307,15 @@ if authentication_status:
         cum_clv.append(cur_clv)
         dates.append(row['STARTS'])
 
-    st.write(np.random.randn(20, 3))
-    #chart_data = pd.DataFrame([dates, ]
-    #np.random.randn(20, 3), columns=["col1", "col2", "col3"])
 
-    st.write(cum_profit)
-    st.write(cum_clv)
+    chart_data = pd.DataFrame([dates, cum_profit, cum_clv], columns=["Date", "Actual P/L", "CLV"])
+    st.line_chart(chart_data, x="Date", y=["Actual P/L", "CLV"], color=["#FF0000", "#0000FF"])
 
-    chart_data = pd.DataFrame(np.random.randn(20, 2), columns=["Actual P/L", "CLV"])
-    st.line_chart(chart_data)
+    #st.write(cum_profit)
+    #st.write(cum_clv)
+
+    #chart_data = pd.DataFrame(np.random.randn(20, 2), columns=["Actual P/L", "CLV"])
+    #st.line_chart(chart_data)
   
 
   
