@@ -279,8 +279,8 @@ if authentication_status:
 
             st.line_chart(chart_data)
   
-  
-  st.button('Delete selected bet(s)', on_click=delete_bets, args=(bets_to_be_deleted,))
+  if bets_to_be_deleted:
+    st.button('Delete selected bet(s)', on_click=delete_bets, args=(bets_to_be_deleted,))
   
 
   
