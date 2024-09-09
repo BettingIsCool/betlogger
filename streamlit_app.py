@@ -307,7 +307,7 @@ if authentication_status:
         cum_clv.append(cur_clv)
         dates.append(row['STARTS'])
 
-    sw.write(np.random.randn(20, 3))
+    st.write(np.random.randn(20, 3))
     #chart_data = pd.DataFrame([dates, ]
     #np.random.randn(20, 3), columns=["col1", "col2", "col3"])
 
