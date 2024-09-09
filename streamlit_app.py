@@ -284,7 +284,7 @@ if authentication_status:
     elif sum_profit < 0:
       color_profit = ':red'
 
-    st.markdown(f"<h2>BETS: {bet_count} - P/L: {color_profit}[{round(sum_profit, 2)}]</h2>")
+    st.header(f"BETS: {bet_count} - P/L: {color_profit}[{round(sum_profit, 2)}]")
     
     #st.write(f"BETS: {bet_count} - CLV: :green[{round(df.loc[df['ST'] != 'na', 'CLV'].sum(), 2)}]")
     chart_data = pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"])
