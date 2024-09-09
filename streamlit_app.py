@@ -294,7 +294,7 @@ if authentication_status:
       color_clv = ':red'
       color_ev = ':green'
 
-    st.header(f"BETS: {bet_count} - TURNOVER: {turnover} - P/L: {color_profit}[{round(sum_profit, 2):+g}] - EXP_WIN: {color_ev}[{round(sum_ev, 2):+g}] - CLV: {color_clv}[{round(100 * clv, 2):+g}%]")
+    st.header(f"BETS: {bet_count} - TURNOVER: {round(turnover, 0)} - P/L: {color_profit}[{round(sum_profit, 2):+g}] - EXP_WIN: {color_ev}[{round(sum_ev, 2):+g}] - CLV: {color_clv}[{round(100 * clv, 2):+g}%]")
 
     cum_profit, cum_clv, cum_bets = list(), list(), list()
     cur_profit, cur_clv, cur_bets = 0.00, 0.00, 0
@@ -310,7 +310,7 @@ if authentication_status:
 
     chart_data = pd.DataFrame({"bet_no": cum_bets, "Actual P/L": cum_profit, "CLV": cum_clv}, columns=["bet_no", "Actual P/L", "CLV"])
 
-    st.line_chart(chart_data, x="bet_no", y=["Actual P/L", "CLV"], x_label='Bet no', y_label='Actual vs expected profit', color=["#FF0000", "#FFA500"])
+    st.line_chart(chart_data, x="bet_no", y=["Actual P/L", "CLV"], x_label='Bet no', y_label='Actual vs expected profit', color=["#FF0000", "#FFA500"], height=1500)
     #chart_data = pd.DataFrame(np.array([dates, cum_profit, cum_clv]), columns=["Date", "Actual P/L", "CLV"])
     #st.line_chart(chart_data, x="Date", y=["Actual P/L", "CLV"], color=["#FF0000", "#0000FF"])
 
