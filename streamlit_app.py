@@ -281,7 +281,14 @@ if authentication_status:
     st.button('Delete selected bet(s)', on_click=delete_bets, args=(bets_to_be_deleted,), type="primary")
 
   if len(df.index) > 0:
-    st.write(f"BETS: {len(df[df['ST'] != 'na'])} - CLV: :green[{round(df.loc[df['ST'] != 'na', 'CLV'].sum(), 2)}]")
+
+    bet_count = len(df[df['ST'] != 'na'])
+    sum_profit = df['P/L'].sum()
+    sum_ev = df['EXP_WIN'].sum()
+
+    st.markdown(f"BETS: {bet_count} - P/L: :green[{round(sum_profit, 2)}]")
+    
+    #st.write(f"BETS: {bet_count} - CLV: :green[{round(df.loc[df['ST'] != 'na', 'CLV'].sum(), 2)}]")
     chart_data = pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"])
     st.line_chart(chart_data)
   
