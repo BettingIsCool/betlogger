@@ -277,6 +277,7 @@ if authentication_status:
     bet_count = len(df[df['ST'] != 'na'])
     sum_profit = df['P/L'].sum()
     sum_ev = df['EXP_WIN'].sum()
+    clv = sum_ev / bet_count
 
     color_profit = ':white'
     if sum_profit > 0:
@@ -284,7 +285,15 @@ if authentication_status:
     elif sum_profit < 0:
       color_profit = ':red'
 
-    st.header(f"BETS: {bet_count} - P/L: {color_profit}[{round(sum_profit, 2):+g}]")
+    color_clv, color_ev = ':white', ':white'
+    if sum_ev > 0:
+      color_clv = ':green'
+      color_ev = ':green'
+    elif sum_ev < 0:
+      color_clv = ':red'
+      color_ev = ':green'
+
+    st.header(f"BETS: {bet_count} - P/L: {color_profit}[{round(sum_profit, 2):+g}] - EXP_WIN: {color_ev}[{round(sum_ev, 2):+g}] - CLV: {color_clv}[{round(100 * clv, 2):+g}%]")
     
     #st.write(f"BETS: {bet_count} - CLV: :green[{round(df.loc[df['ST'] != 'na', 'CLV'].sum(), 2)}]")
     chart_data = pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"])
