@@ -27,8 +27,6 @@ def refresh_table():
 
 def color_cells(val):
 
-  st.write(val)
-
   color = 'white'
   if val is not None:
     
@@ -44,6 +42,7 @@ def color_cells(val):
       elif val < 0:
         color = 'red'
 
+  st.write(f'color: {color}')
   return f'color: {color}'
 
 # End of helper functions
