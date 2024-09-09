@@ -11,8 +11,6 @@ import streamlit_authenticator as stauth
 
 from config import SPORTS, PERIODS, BOOKS
 
-bets_to_be_deleted = set()
-
 # Start of helper functions 
 
 def delete_bets(bets_to_be_deleted):
@@ -227,9 +225,7 @@ if authentication_status:
   # Apply filter to recorded bets
   st.sidebar.write('Apply filters to your bets')
 
-  refresh_table, delete_bets = st.columns(2)
-  refresh_table = refresh_table.button('Refresh Table', on_click=refresh_table)
-  delete_bets.button('Delete selected bet(s)', on_click=delete_bets, args=(bets_to_be_deleted,))
+  st.button('Refresh Table', on_click=refresh_table)
 
   user_unique_sports = db.get_user_unique_sports(username=username)
   selected_sports = st.sidebar.multiselect(label='Sports', options=sorted(user_unique_sports), default=user_unique_sports)
@@ -284,6 +280,7 @@ if authentication_status:
             st.line_chart(chart_data)
   
   bets_to_be_deleted = df.loc[(df['DEL'] == True), 'ID'].tolist()
+  st.button('Delete selected bet(s)', on_click=delete_bets, args=(bets_to_be_deleted,))
   
 
   
