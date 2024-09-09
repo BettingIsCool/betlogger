@@ -296,8 +296,8 @@ if authentication_status:
 
     st.header(f"BETS: {bet_count} - TURNOVER: {turnover} - P/L: {color_profit}[{round(sum_profit, 2):+g}] - EXP_WIN: {color_ev}[{round(sum_ev, 2):+g}] - CLV: {color_clv}[{round(100 * clv, 2):+g}%]")
     
-    #st.write(f"BETS: {bet_count} - CLV: :green[{round(df.loc[df['ST'] != 'na', 'CLV'].sum(), 2)}]")
-    chart_data = pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"])
+
+    chart_data = pd.DataFrame(np.random.randn(20, 2), columns=["Actual P/L", "CLV"])
     st.line_chart(chart_data)
   
 
