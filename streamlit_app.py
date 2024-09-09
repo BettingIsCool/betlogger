@@ -17,7 +17,7 @@ def delete_bets(bets_to_be_deleted):
 
   for id in bets_to_be_deleted:
     db.delete_bet(id=id)
-  st.cache_data.clear()
+    st.cache_data.clear()
 
 
 def refresh_table():
