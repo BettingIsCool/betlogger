@@ -30,9 +30,9 @@ def get_users():
 
 
 @st.cache_data(ttl=10)
-def get_bets(username: str, sports: str, leagues: str, bookmakers: str, tags: str, date_from: datetime, date_to: datetime):
+def get_bets(username: str, sports: str, bookmakers: str, tags: str, date_from: datetime, date_to: datetime):
 
-  return conn.query(f"SELECT delete_bet, id, tag, starts, sport_name, league_name, runner_home, runner_away, market, period_name, side_name, line, odds, stake, bookmaker, bet_status, score_home, score_away, profit, cls_odds, true_cls, cls_limit, ev, clv, bet_added FROM {TABLE_BETS} WHERE user = '{username}' AND sport_name IN {sports} AND league_name IN {leagues} AND bookmaker IN {bookmakers} AND tag in {tags} AND DATE(starts) >= '{date_from.strftime('%Y-%m-%d')}' AND DATE(starts) <= '{date_to.strftime('%Y-%m-%d')}' ORDER BY starts", ttl=600).to_dict('records')
+  return conn.query(f"SELECT delete_bet, id, tag, starts, sport_name, league_name, runner_home, runner_away, market, period_name, side_name, line, odds, stake, bookmaker, bet_status, score_home, score_away, profit, cls_odds, true_cls, cls_limit, ev, clv, bet_added FROM {TABLE_BETS} WHERE user = '{username}' AND sport_name IN {sports} AND bookmaker IN {bookmakers} AND tag in {tags} AND DATE(starts) >= '{date_from.strftime('%Y-%m-%d')}' AND DATE(starts) <= '{date_to.strftime('%Y-%m-%d')}' ORDER BY starts", ttl=600).to_dict('records')
 
 
 @st.cache_data(ttl=10)
@@ -48,21 +48,21 @@ def get_user_unique_leagues(username: str, sports: str):
 
 
 @st.cache_data(ttl=10)
-def get_user_unique_bookmakers(username: str, sports: str, leagues: str):
+def get_user_unique_bookmakers(username: str, sports: str):
 
-  return conn.query(f"SELECT DISTINCT(bookmaker) FROM {TABLE_BETS} WHERE user = '{username}' AND sport_name IN {sports} AND league_name IN {leagues}", ttl=600)['bookmaker'].tolist()
-
-
-@st.cache_data(ttl=10)
-def get_user_unique_tags(username: str, sports: str, leagues: str, bookmakers: str):
-
-  return conn.query(f"SELECT DISTINCT(tag) FROM {TABLE_BETS} WHERE user = '{username}' AND sport_name IN {sports} AND league_name IN {leagues} AND bookmaker IN {bookmakers}", ttl=600)['tag'].tolist()
+  return conn.query(f"SELECT DISTINCT(bookmaker) FROM {TABLE_BETS} WHERE user = '{username}' AND sport_name IN {sports}", ttl=600)['bookmaker'].tolist()
 
 
 @st.cache_data(ttl=10)
-def get_user_unique_starts(username: str, sports: str, leagues: str, bookmakers: str, tags: str):
+def get_user_unique_tags(username: str, sports: str, bookmakers: str):
 
-  return conn.query(f"SELECT DISTINCT(starts) FROM {TABLE_BETS} WHERE user = '{username}' AND sport_name IN {sports} AND league_name IN {leagues} AND bookmaker IN {bookmakers} AND tag IN {tags}", ttl=600)['starts'].tolist()
+  return conn.query(f"SELECT DISTINCT(tag) FROM {TABLE_BETS} WHERE user = '{username}' AND sport_name IN {sports} AND bookmaker IN {bookmakers}", ttl=600)['tag'].tolist()
+
+
+@st.cache_data(ttl=10)
+def get_user_unique_starts(username: str, sports: str, bookmakers: str, tags: str):
+
+  return conn.query(f"SELECT DISTINCT(starts) FROM {TABLE_BETS} WHERE user = '{username}' AND sport_name IN {sports} AND bookmaker IN {bookmakers} AND tag IN {tags}", ttl=600)['starts'].tolist()
 
 
 def append_bet(data: dict):
