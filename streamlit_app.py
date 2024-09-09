@@ -278,7 +278,13 @@ if authentication_status:
     sum_profit = df['P/L'].sum()
     sum_ev = df['EXP_WIN'].sum()
 
-    st.markdown(f"BETS: {bet_count} - P/L: :green[{round(sum_profit, 2)}]")
+    color_profit = ':white'
+    if sum_profit > 0:
+      color_profit = ':green'
+    elif sum_profit < 0:
+      color_profit = ':red'
+
+    st.markdown(f"BETS: {bet_count} - P/L: {color_profit}[{round(sum_profit, 2)}]")
     
     #st.write(f"BETS: {bet_count} - CLV: :green[{round(df.loc[df['ST'] != 'na', 'CLV'].sum(), 2)}]")
     chart_data = pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"])
