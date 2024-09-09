@@ -296,7 +296,7 @@ if authentication_status:
 
     st.header(f"BETS: {bet_count} - TURNOVER: {turnover} - P/L: {color_profit}[{round(sum_profit, 2):+g}] - EXP_WIN: {color_ev}[{round(sum_ev, 2):+g}] - CLV: {color_clv}[{round(100 * clv, 2):+g}%]")
 
-    cum_profit, cum_clv, cum_bet_number = list(), list(), list()
+    cum_profit, cum_clv, dates = list(), list(), list()
     cur_profit, cur_clv, cur_bet_number = 0.00, 0.00, 0
     for index, row in df.iterrows():
       if row['ST'] != 'na': 
