@@ -236,7 +236,7 @@ if authentication_status:
 
   if selected_sports != '()':
     
-    user_unique_bookmakers = db.get_user_unique_bookmakers(username=username, sports=selected_sports, leagues=selected_leagues)
+    user_unique_bookmakers = db.get_user_unique_bookmakers(username=username, sports=selected_sports)
     selected_bookmakers = st.sidebar.multiselect(label='Bookmakers', options=sorted(user_unique_bookmakers), default=user_unique_bookmakers)
     selected_bookmakers = [f"'{s}'" for s in selected_bookmakers]
     selected_bookmakers = f"({','.join(selected_bookmakers)})"
