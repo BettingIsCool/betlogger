@@ -11,7 +11,7 @@ import streamlit_authenticator as stauth
 
 from config import SPORTS, PERIODS, BOOKS
 
-bets_to_be_deleted = set()
+bets_to_be_deleted, df = set(), set()
 
 # Start of helper functions 
 
@@ -272,8 +272,7 @@ if authentication_status:
   if bets_to_be_deleted:
     st.button('Delete selected bet(s)', on_click=delete_bets, args=(bets_to_be_deleted,), type="primary")
 
-  st.write(df)
-  if len(df.index) > 0:
+  if df and len(df.index) > 0:
 
     bet_count = len(df[df['ST'] != 'na'])
     sum_profit = df['P/L'].sum()
