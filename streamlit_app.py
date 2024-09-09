@@ -276,13 +276,12 @@ if authentication_status:
             df = st.data_editor(styled_df, column_config={"DEL": st.column_config.CheckboxColumn("DEL", help="Select if you want to delete this bet.", default=False)}, disabled=['TAG', 'STARTS', 'SPORT', 'LEAGUE', 'RUNNER_HOME', 'RUNNER_AWAY', 'MARKET', 'PERIOD', 'SIDE', 'LINE', 'ODDS', 'STAKE', 'BOOK', 'ST', 'SH', 'SA', 'P/L', 'CLS', 'CLS_TRUE', 'CLS_LIMIT', 'EXP_WIN', 'CLV', 'BET_ADDED', 'ID'], hide_index=True)
             
             bets_to_be_deleted = df.loc[(df['DEL'] == True), 'ID'].tolist()
-            
-            chart_data = pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"])
-
-            st.line_chart(chart_data)
   
   if bets_to_be_deleted:
     st.button('Delete selected bet(s)', on_click=delete_bets, args=(bets_to_be_deleted,))
+
+  chart_data = pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"])
+  st.line_chart(chart_data)
   
 
   
