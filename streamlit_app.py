@@ -305,7 +305,7 @@ if authentication_status:
         
         cum_profit.append(cur_profit)
         cum_clv.append(cur_clv)
-        dates.append(row['STARTS'])
+        dates.append(row['STARTS'].strftime('%Y%m%d'))
 
 
     st.write(dates)
