@@ -5,6 +5,7 @@ import pandas as pd
 import streamlit as st
 from st_paywall import add_auth
 
+st.write(st.secrets["client_id"])
 st.set_page_config(page_title="Betlogger by BettingIsCool", page_icon="🦈", layout="wide", initial_sidebar_state="expanded")
 
 import db_pinnacle as db
