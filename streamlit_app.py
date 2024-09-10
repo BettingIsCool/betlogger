@@ -289,13 +289,13 @@ if len(df) > 0:
   sum_ev = df['EXP_WIN'].sum()
   clv = sum_ev / turnover
 
-  color_profit = ':white'
+  color_profit = ':gray'
   if sum_profit > 0:
     color_profit = ':green'
   elif sum_profit < 0:
     color_profit = ':red'
 
-  color_clv, color_ev = ':white', ':white'
+  color_clv, color_ev = ':gray', ':gray'
   if sum_ev > 0:
     color_clv = ':green'
     color_ev = ':green'
