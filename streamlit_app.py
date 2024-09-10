@@ -12,15 +12,10 @@ import streamlit_authenticator as stauth
 
 from config import SPORTS, PERIODS, BOOKS, TEXT1_LANDING_PAGE, TEXT2_LANDING_PAGE, TEXT3_LANDING_PAGE
 
-placeholder1 = st.empty()
-placeholder2 = st.empty()
-placeholder3 = st.empty()
-placeholder4 = st.empty()
-
-placeholder1.markdown(TEXT1_LANDING_PAGE)
-placeholder2.image("dashboard_screenshot.png")
-placeholder3.markdown(TEXT2_LANDING_PAGE)
-placeholder4.markdown(TEXT3_LANDING_PAGE)
+st.markdown(TEXT1_LANDING_PAGE)
+st.image("dashboard_screenshot.png")
+st.markdown(TEXT2_LANDING_PAGE)
+st.markdown(TEXT3_LANDING_PAGE)
 
 st.cache_data.clear()
 users = set(db.get_users())
@@ -40,10 +35,9 @@ bets_to_be_deleted, df = set(), set()
 if not df:
   # ONLY AFTER THE AUTHENTICATION + SUBSCRIPTION, THE USER WILL SEE THIS ⤵
   # The email and subscription status is stored in session state.
-  placeholder1.write(f"Subscription Status: {st.session_state.user_subscribed}")
-  placeholder2.write("🎉 Yay! You're all set and subscribed! 🎉")
-  placeholder3.write(f'Please add a bet in the left sidebar.')
-  placeholder4.empty()
+  st.write(f"Subscription Status: {st.session_state.user_subscribed}")
+  st.write("🎉 Yay! You're all set and subscribed! 🎉")
+  st.write(f'Please add a bet in the left sidebar.')
 
 # Start of helper functions 
 
@@ -79,9 +73,6 @@ def color_cells(val):
   return f'color: {color}'
 
 # End of helper functions
-
-
-
 
 
 # Display name & widgets in side bar
@@ -280,7 +271,7 @@ if selected_sports != '()':
         
         # Apply font & background colors to cells, apply number formatting
         styled_df = bets_df.style.applymap(color_cells, subset=['ST', 'P/L', 'EXP_WIN', 'CLV']).format({'LINE': '{:g}'.format, 'ODDS': '{:,.3f}'.format, 'STAKE': '{:,.2f}'.format, 'P/L': '{:,.2f}'.format, 'CLS': '{:,.3f}'.format, 'CLS_TRUE': '{:,.3f}'.format, 'CLS_LIMIT': '{:,.0f}'.format, 'EXP_WIN': '{:,.2f}'.format, 'CLV': '{:,.2%}'.format, 'SH': '{0:g}'.format, 'SA': '{0:g}'.format})
-        df = placeholder1.data_editor(styled_df, column_config={"DEL": st.column_config.CheckboxColumn("DEL", help="Select if you want to delete this bet.", default=False)}, disabled=['TAG', 'STARTS', 'SPORT', 'LEAGUE', 'RUNNER_HOME', 'RUNNER_AWAY', 'MARKET', 'PERIOD', 'SIDE', 'LINE', 'ODDS', 'STAKE', 'BOOK', 'ST', 'SH', 'SA', 'P/L', 'CLS', 'CLS_TRUE', 'CLS_LIMIT', 'EXP_WIN', 'CLV', 'BET_ADDED', 'ID'], hide_index=True)
+        df = st.data_editor(styled_df, column_config={"DEL": st.column_config.CheckboxColumn("DEL", help="Select if you want to delete this bet.", default=False)}, disabled=['TAG', 'STARTS', 'SPORT', 'LEAGUE', 'RUNNER_HOME', 'RUNNER_AWAY', 'MARKET', 'PERIOD', 'SIDE', 'LINE', 'ODDS', 'STAKE', 'BOOK', 'ST', 'SH', 'SA', 'P/L', 'CLS', 'CLS_TRUE', 'CLS_LIMIT', 'EXP_WIN', 'CLV', 'BET_ADDED', 'ID'], hide_index=True)
         
         bets_to_be_deleted = df.loc[(df['DEL'] == True), 'ID'].tolist()
 
@@ -309,7 +300,7 @@ if len(df) > 0:
     color_clv = ':red'
     color_ev = ':green'
 
-  placeholder2.header(f"BETS: {bet_count} - TURNOVER: {int(turnover)} - P/L: {color_profit}[{round(sum_profit, 2):+g}] - EXP_WIN: {color_ev}[{round(sum_ev, 2):+g}] - CLV: {color_clv}[{round(100 * clv, 2):+g}%]")
+  st.header(f"BETS: {bet_count} - TURNOVER: {int(turnover)} - P/L: {color_profit}[{round(sum_profit, 2):+g}] - EXP_WIN: {color_ev}[{round(sum_ev, 2):+g}] - CLV: {color_clv}[{round(100 * clv, 2):+g}%]")
 
   cum_profit, cum_clv, cum_bets = list(), list(), list()
   cur_profit, cur_clv, cur_bets = 0.00, 0.00, 0
@@ -325,7 +316,7 @@ if len(df) > 0:
 
   chart_data = pd.DataFrame({"bet_no": cum_bets, "Actual P/L": cum_profit, "CLV": cum_clv}, columns=["bet_no", "Actual P/L", "CLV"])
 
-  placeholder3.line_chart(chart_data, x="bet_no", y=["Actual P/L", "CLV"], x_label='Bet no', y_label='Actual vs expected profit', color=["#FF0000", "#FFA500"], height=800)
+  st.line_chart(chart_data, x="bet_no", y=["Actual P/L", "CLV"], x_label='Bet no', y_label='Actual vs expected profit', color=["#FF0000", "#FFA500"], height=800)
 
 
   
