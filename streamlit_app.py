@@ -31,6 +31,7 @@ username = st.session_state.email
 
 if username not in users:
   db.append_user(data={'username': username})
+  users.append(username)
 
 st.write(db.get_users())
 
