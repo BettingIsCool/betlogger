@@ -34,7 +34,15 @@ except:
 
 add_auth(required=True)
 
+try:
+  
+  placeholder1.empty()
+  placeholder2.empty()
+  placeholder3.empty()
+  placeholder4.empty()
 
+except:
+  pass
 
 # Fetch all active users from database
 
