@@ -15,7 +15,11 @@ from config import SPORTS, PERIODS, BOOKS, TEXT1_LANDING_PAGE, TEXT2_LANDING_PAG
 try: 
   
   if st.write(st.session_state.email):
-    pass
+    
+    placeholder1.empty()
+    placeholder2.empty()
+    placeholder3.empty()
+    placeholder4.empty()
 
 except:
 
@@ -32,11 +36,6 @@ except:
   users = set(db.get_users())
 
 add_auth(required=True)
-
-placeholder1.empty()
-placeholder2.empty()
-placeholder3.empty()
-placeholder4.empty()
 
 # Fetch all active users from database
 
