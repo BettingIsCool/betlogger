@@ -16,6 +16,8 @@ try:
   
   if isinstance(st.session_state.email, str):
 
+    st.write(session_state.email)
+
     placeholder1.empty()
     placeholder2.empty()
     placeholder3.empty()
