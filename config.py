@@ -40,7 +40,7 @@ It can not track special bets. Hence if you're mainly betting prop markets & exo
 
 ##### ❓ DON'T KNOW WHAT CLV IS ❓
 
-If you're yet unsure what clv (closing line value) is and why it is THE most predictive metric for betting analysis then I recommend heading over to @nishikoripicks 's https://twitter.com/nishikoripicks/status/1729128310758592862 and/or watch his 2-part series
+If you're yet unsure what clv (closing line value) is and why it is THE most predictive metric for betting analysis then I recommend heading over to [@nishikoripicks](https://twitter.com/nishikoripicks?lang=en) 's https://twitter.com/nishikoripicks/status/1729128310758592862 and/or watch his 2-part series
 
 📽 Part I: https://youtube.com/watch?v=-uLJUhbFD_U&t=22s
 
