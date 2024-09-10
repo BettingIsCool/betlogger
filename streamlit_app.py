@@ -17,7 +17,7 @@ placeholder2 = st.empty()
 placeholder3 = st.empty()
 placeholder4 = st.empty()
 
-@st.cache
+@st.cache_resource
 def display_landing_page():
 
   placeholder1.markdown(TEXT1_LANDING_PAGE)
