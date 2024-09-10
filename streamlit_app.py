@@ -42,14 +42,6 @@ if username not in users:
 
 bets_to_be_deleted, df = set(), set()
 
-if not df:
-  # ONLY AFTER THE AUTHENTICATION + SUBSCRIPTION, THE USER WILL SEE THIS ⤵
-  # The email and subscription status is stored in session state.
-  placeholder1.write(f"Subscription Status: {st.session_state.user_subscribed}")
-  placeholder2.write("🎉 Yay! You're all set and subscribed! 🎉")
-  placeholder3.write(f'Please add a bet in the left sidebar.')
-  placeholder4.empty()
-
 # Start of helper functions 
 
 def delete_bets(bets_to_be_deleted):
