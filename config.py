@@ -1,6 +1,34 @@
 TABLE_LEAGUES, TABLE_FIXTURES, TABLE_ODDS, TABLE_RESULTS, TABLE_BETS, TABLE_USERS = 'leagues', 'fixtures', 'odds', 'results', 'bets', 'users'
 
-TEXT_LANDING_PAGE = """*THIS TOOL WILL REVEAL YOUR EDGE INSTANTLY!*"""
+TEXT_LANDING_PAGE = """
+
+*THIS TOOL WILL REVEAL YOUR EDGE INSTANTLY!*
+
+Log your bets and keep track of profits + clv (closing line value) with this easy-to-use app.
+
+Backtest your models, strategies and your favourite tipsters with a database reaching back to 2021.
+
+Add future bets and retrieve current odds, expected win & clv, so you know exactly where you currently stand with your bet.
+
+Check out the many features below and take your betting to the next level.
+
+👉 Automatic grading of your bets, including scorelines.
+
+👉 41 unique sports, 15159 unique leagues supported.
+
+👉 1.5 million fixtures and growing.
+
+👉 Fulltime, halftime, quarter markets supported and many more.
+
+👉 moneyline, spread, totals & team_totals markets supported.
+
+👉 Export option allows you to download and share your bets.
+
+👉 Clean & simple, no-nonsense interface & dashboard.
+
+👉 Precise clv calculation using @12Xpert 's logarithmic function, explained in his article here https://www.football-data.co.uk/The_Wisdom_of_the_Crowd_updated.pdf
+
+"""
 
 SPORTS = dict()
 SPORTS.update({'Soccer': 29})
