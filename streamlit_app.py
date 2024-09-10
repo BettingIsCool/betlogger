@@ -22,13 +22,15 @@ placeholder2.image("dashboard_screenshot.png")
 placeholder3.markdown(TEXT2_LANDING_PAGE)
 placeholder4.markdown(TEXT3_LANDING_PAGE)
 
+users = db.get_users()
+
 add_auth(required=True)
 
 # Fetch all active users from database
 
 username = st.session_state.email
 
-if username not in db.get_users():
+if username not in users:
   db.append_user(data={'username': username})
 
 st.write(db.get_users())
