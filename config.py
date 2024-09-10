@@ -33,9 +33,13 @@ Check out the many features below and take your betting to the next level.
 👉 Performance graph showing actual vs expected profits.
 
 
+
+
 ##### ⚠️ WHAT THIS TOOL CAN NOT DO ⚠️
 
-It can not track special bets. Hence if you're mainly betting prop markets & exotic derivatives then this tool is not for you.\n
+It can not track special bets. Hence if you're mainly betting prop markets & exotic derivatives then this tool is not for you.
+
+
 
 
 ##### ❓ DON'T KNOW WHAT CLV IS ❓
