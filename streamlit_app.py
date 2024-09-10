@@ -26,7 +26,10 @@ add_auth(required=True)
 
 # Fetch all active users from database
 users = db.get_users()
-st.write(users)
+
+username = st.session_state.email
+if username not in db.get_users():
+  db.append_user(username=username)
 
 
 # ONLY AFTER THE AUTHENTICATION + SUBSCRIPTION, THE USER WILL SEE THIS ⤵
