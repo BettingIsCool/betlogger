@@ -209,13 +209,13 @@ if selected_sport is not None:
                       data.update({'clv': 0.00})
                       
                       if selected_line is not None:
-                        data.update({'raw_line': round(selected_line, 2)})
+                        data.update({'raw_line': selected_line})
                       else:
-                        data.update({'raw_line': None})
+                        data.update({'raw_line': 'na'})
                       if selected_line is not None:
-                        data.update({'line': round(line_options[selected_line], 2)})
+                        data.update({'line': line_options[selected_line]})
                       else:
-                        data.update({'line': None})
+                        data.update({'line': 'na'})
                         
                       data.update({'odds': odds})
                       data.update({'stake': stake})
