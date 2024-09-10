@@ -9,10 +9,12 @@ st.set_page_config(page_title="Betlogger by BettingIsCool", page_icon="🦈", la
 import db_pinnacle as db
 import streamlit_authenticator as stauth
 
-from config import SPORTS, PERIODS, BOOKS, TEXT_LANDING_PAGE
+from config import SPORTS, PERIODS, BOOKS, TEXT1_LANDING_PAGE, TEXT2_LANDING_PAGE, TEXT3_LANDING_PAGE
 
-st.markdown(TEXT_LANDING_PAGE)
+st.markdown(TEXT1_LANDING_PAGE)
 st.image("dashboard_screenshot.png")
+st.markdown(TEXT2_LANDING_PAGE)
+st.markdown(TEXT3_LANDING_PAGE)
 
 bets_to_be_deleted, df = set(), set()
 
