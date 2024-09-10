@@ -12,13 +12,13 @@ import streamlit_authenticator as stauth
 
 from config import SPORTS, PERIODS, BOOKS, TEXT1_LANDING_PAGE, TEXT2_LANDING_PAGE, TEXT3_LANDING_PAGE
 
-placeholder1 = st.empty()
-placeholder2 = st.empty()
-placeholder3 = st.empty()
-placeholder4 = st.empty()
+global placeholder1 = st.empty()
+global placeholder2 = st.empty()
+global placeholder3 = st.empty()
+global placeholder4 = st.empty()
 
 @st.cache_resource
-def display_landing_page(placeholder1, placeholder2, placeholder3, placeholder4):
+def display_landing_page():
 
   placeholder1.markdown(TEXT1_LANDING_PAGE)
   placeholder2.image("dashboard_screenshot.png")
