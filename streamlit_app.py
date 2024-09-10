@@ -2,8 +2,10 @@ import time
 import datetime
 import numpy as np
 import pandas as pd
-import streamlit as st
+import streamlit as s
 from st_paywall import add_auth
+
+import st_state_patch
 
 st.set_page_config(page_title="Betlogger by BettingIsCool", page_icon="🦈", layout="wide", initial_sidebar_state="expanded")
 
