@@ -27,7 +27,7 @@ def bind_socket():
   
   users = set(db.get_users())
 
-return users, placeholder1, placeholder2, placeholder3, placeholder4
+  return users, placeholder1, placeholder2, placeholder3, placeholder4
 
 bind_socket()
 
