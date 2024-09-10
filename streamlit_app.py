@@ -15,11 +15,6 @@ from config import SPORTS, PERIODS, BOOKS, TEXT1_LANDING_PAGE, TEXT2_LANDING_PAG
 try: 
   
   st.write(st.session_state.email)
-    
-  placeholder1.empty()
-  placeholder2.empty()
-  placeholder3.empty()
-  placeholder4.empty()
 
 except:
 
