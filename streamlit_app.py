@@ -5,7 +5,6 @@ import pandas as pd
 import streamlit as st
 from st_paywall import add_auth
 
-st.write(st.secrets["client_id"])
 st.set_page_config(page_title="Betlogger by BettingIsCool", page_icon="🦈", layout="wide", initial_sidebar_state="expanded")
 
 import db_pinnacle as db
@@ -18,7 +17,7 @@ st.image("dashboard_screenshot.png")
 st.markdown(TEXT2_LANDING_PAGE)
 st.markdown(TEXT3_LANDING_PAGE)
 
-#add_auth(required=True)
+add_auth(required=True)
 
 # ONLY AFTER THE AUTHENTICATION + SUBSCRIPTION, THE USER WILL SEE THIS ⤵
 # The email and subscription status is stored in session state.
