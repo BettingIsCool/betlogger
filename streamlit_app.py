@@ -27,7 +27,6 @@ if count == 0:
   placeholder4.markdown(TEXT3_LANDING_PAGE)
   count += 1
 
-st.cache_data.clear()
 users = set(db.get_users())
 
 add_auth(required=True)
