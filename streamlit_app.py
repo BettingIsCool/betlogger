@@ -27,14 +27,16 @@ def bind_socket():
   
   users = set(db.get_users())
 
+return users, placeholder1, placeholder2, placeholder3, placeholder4
+
 bind_socket()
 
 add_auth(required=True)
 
-#placeholder1.empty()
-#placeholder2.empty()
-#placeholder3.empty()
-#placeholder4.empty()
+placeholder1.empty()
+placeholder2.empty()
+placeholder3.empty()
+placeholder4.empty()
 
 # Fetch all active users from database
 
