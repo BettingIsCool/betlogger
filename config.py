@@ -1,6 +1,6 @@
 TABLE_LEAGUES, TABLE_FIXTURES, TABLE_ODDS, TABLE_RESULTS, TABLE_BETS, TABLE_USERS = 'leagues', 'fixtures', 'odds', 'results', 'bets', 'users'
 
-TEXT_LANDING_PAGE = """
+TEXT1_LANDING_PAGE = """
 
 ### **THIS TOOL WILL REVEAL YOUR EDGE INSTANTLY!**
 
@@ -32,11 +32,17 @@ Check out the many features below and take your betting to the next level.
 
 👉 Performance graph showing actual vs expected profits.
 
+"""
+
+TEXT2_LANDING_PAGE = """
 
 ##### ⚠️ WHAT THIS TOOL CAN NOT DO ⚠️
 
 It can not track special bets. Hence if you're mainly betting prop markets & exotic derivatives then this tool is not for you.
 
+"""
+
+TEXT3_LANDING_PAGE = """
 
 ##### ❓ DON'T KNOW WHAT CLV IS ❓
 
