@@ -26,7 +26,7 @@ def get_odds(event_id: int):
 @st.cache_data(ttl=10)
 def get_users():
 
-  return conn.query(f"SELECT name, username, password FROM {TABLE_USERS}", ttl=600).to_dict('records')
+  return conn.query(f"SELECT username FROM {TABLE_USERS}", ttl=600).to_dict('records')
 
 
 @st.cache_data(ttl=10)
@@ -67,10 +67,10 @@ def get_user_unique_starts(username: str, sports: str, bookmakers: str, tags: st
 
 def append_user(data: dict):
 
-  query = f"INSERT INTO {TABLE_USERS} (name, username, email) VALUES(:name, :username, :email)"
+  query = f"INSERT INTO {TABLE_USERS} (username) VALUES(:username)"
  
   with conn.session as session:
-    session.execute(text(query), params = dict(name = data['name'], username = data['username'], email = data['email']))
+    session.execute(text(query), params = dict(username = data['username']))
     session.commit()
 
 
