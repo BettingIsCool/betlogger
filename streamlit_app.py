@@ -12,7 +12,7 @@ import streamlit_authenticator as stauth
 
 from config import SPORTS, PERIODS, BOOKS, TEXT1_LANDING_PAGE, TEXT2_LANDING_PAGE, TEXT3_LANDING_PAGE
 
-if 'users' not in locals():
+if 'users' not in globals():
   placeholder1 = st.empty()
   placeholder2 = st.empty()
   placeholder3 = st.empty()
