@@ -25,7 +25,7 @@ def get_odds(event_id: int):
 
 def get_users():
 
-  return conn.query(f"SELECT username FROM {TABLE_USERS}", ttl=600)['username'].tolist()
+  return conn.query(f"SELECT username FROM {TABLE_USERS}")['username'].tolist()
 
 
 @st.cache_data(ttl=10)
