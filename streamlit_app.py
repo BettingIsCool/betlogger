@@ -209,11 +209,11 @@ if selected_sport is not None:
                       data.update({'clv': 0.00})
                       
                       if selected_line is not None:
-                        data.update({'raw_line': selected_line})
+                        data.update({'raw_line': round(selected_line, 2)})
                       else:
                         data.update({'raw_line': None})
                       if selected_line is not None:
-                        data.update({'line': line_options[selected_line]})
+                        data.update({'line': round(line_options[selected_line], 2)})
                       else:
                         data.update({'line': None})
                         
