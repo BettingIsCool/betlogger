@@ -80,7 +80,7 @@ def color_cells(val):
 
 
 # Display name & widgets in side bar
-st.sidebar.title(f"Welcome {name}")
+st.sidebar.title(f"Welcome {username}")
 
 # Add a bet
 st.sidebar.write('Add a bet')
