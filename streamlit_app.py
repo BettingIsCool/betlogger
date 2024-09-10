@@ -28,6 +28,8 @@ add_auth(required=True)
 users = db.get_users()
 
 username = st.session_state.email
+
+st.write(db.get_users())
 if username not in db.get_users():
   db.append_user(data={'username': username})
 
