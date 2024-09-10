@@ -1,5 +1,4 @@
 numpy
-st_state_patch
 SQLAlchemy
 matplotlib
 st-paywall
