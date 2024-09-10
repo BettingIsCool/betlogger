@@ -28,6 +28,18 @@ Check out the many features below and take your betting to the next level.
 
 👉 Precise clv calculation using @12Xpert 's logarithmic function, explained in his article here https://www.football-data.co.uk/The_Wisdom_of_the_Crowd_updated.pdf
 
+👉 Tag your bets and apply it as a filter for future analysis.
+
+👉 Performance graph showing actual vs expected profits.
+
+⚠️ WHAT THIS TOOL CAN NOT DO ⚠️
+
+It can not track special bets. Hence if you're mainly betting prop markets & exotic derivatives then this tool is not for you. 
+
+❓ DON'T KNOW WHAT CLV IS ❓
+
+If your're yet unsure what clv (closing line value) is and why it is THE most predictive metric for betting analysis then I recommend heading over to @nishikoripicks 's https://twitter.com/nishikoripicks/status/1729128310758592862 and/or watch his 2-part series
+
 """
 
 SPORTS = dict()
