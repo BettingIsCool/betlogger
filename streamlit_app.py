@@ -12,6 +12,7 @@ import streamlit_authenticator as stauth
 from config import SPORTS, PERIODS, BOOKS, TEXT_LANDING_PAGE
 
 st.markdown(TEXT_LANDING_PAGE)
+st.image("dashboard_screenshot.png")
 
 bets_to_be_deleted, df = set(), set()
 
