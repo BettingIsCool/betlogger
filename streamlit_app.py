@@ -21,7 +21,6 @@ placeholder1.markdown(TEXT1_LANDING_PAGE)
 placeholder2.image("dashboard_screenshot.png")
 placeholder3.markdown(TEXT2_LANDING_PAGE)
 placeholder4.markdown(TEXT3_LANDING_PAGE)
-  count += 1
 
 st.cache_data.clear()
 users = set(db.get_users())
