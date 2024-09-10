@@ -26,7 +26,7 @@ Check out the many features below and take your betting to the next level.
 
 👉 Clean & simple, no-nonsense interface & dashboard.
 
-👉 Precise clv calculation using [@12Xpert](https://twitter.com/12Xpert?lang=en) 's logarithmic function, explained in his article here https://www.football-data.co.uk/The_Wisdom_of_the_Crowd_updated.pdf
+👉 Precise clv calculation using [@12Xpert](https://twitter.com/12Xpert?lang=en) 's logarithmic function, explained in his article here https://tinyurl.com/woc12Xpert
 
 👉 Tag your bets and apply it as a filter for future analysis.
 
@@ -40,7 +40,7 @@ It can not track special bets. Hence if you're mainly betting prop markets & exo
 
 ##### ❓ DON'T KNOW WHAT CLV IS ❓
 
-If you're yet unsure what clv (closing line value) is and why it is THE most predictive metric for betting analysis then I recommend heading over to [@nishikoripicks](https://twitter.com/nishikoripicks?lang=en) 's https://twitter.com/nishikoripicks/status/1729128310758592862 and/or watch his 2-part series
+If you're yet unsure what clv (closing line value) is and why it is THE most predictive metric for betting analysis then I recommend heading over to [@nishikoripicks](https://twitter.com/nishikoripicks?lang=en) 's https://tinyurl.com/clvnishi and/or watch his 2-part series
 
 📽 Part I: https://youtube.com/watch?v=-uLJUhbFD_U&t=22s
 
