@@ -1,5 +1,6 @@
 numpy
 SQLAlchemy
 matplotlib
+st-paywall
 mysql-connector-python
 streamlit-authenticator==0.1.5
