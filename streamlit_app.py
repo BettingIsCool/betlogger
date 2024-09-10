@@ -25,7 +25,7 @@ def display_landing_page():
   placeholder3.markdown(TEXT2_LANDING_PAGE)
   placeholder4.markdown(TEXT3_LANDING_PAGE)
 
-display_landing_page()
+display_landing_page
 
 users = set(db.get_users())
 
