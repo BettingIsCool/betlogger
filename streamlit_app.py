@@ -43,6 +43,7 @@ if not df:
   placeholder1.write(f"Subscription Status: {st.session_state.user_subscribed}")
   placeholder2.write("🎉 Yay! You're all set and subscribed! 🎉")
   placeholder3.write(f'Please add a bet in the left sidebar.')
+  placeholder4.empty()
 
 # Start of helper functions 
 
