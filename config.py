@@ -1,5 +1,50 @@
 TABLE_LEAGUES, TABLE_FIXTURES, TABLE_ODDS, TABLE_RESULTS, TABLE_BETS, TABLE_USERS = 'leagues', 'fixtures', 'odds', 'results', 'bets', 'users'
 
+TEXT_LANDING_PAGE = """
+
+*THIS TOOL WILL REVEAL YOUR EDGE INSTANTLY!*
+
+Log your bets and keep track of profits + clv (closing line value) with this easy-to-use app.
+
+Backtest your models, strategies and your favourite tipsters with a database reaching back to 2021.
+
+Add future bets and retrieve current odds, expected win & clv, so you know exactly where you currently stand with your bet.
+
+Check out the many features below and take your betting to the next level.
+
+👉 Automatic grading of your bets, including scorelines.
+
+👉 41 unique sports, 15159 unique leagues supported.
+
+👉 1.5 million fixtures and growing.
+
+👉 Fulltime, halftime, quarter markets supported and many more.
+
+👉 moneyline, spread, totals & team_totals markets supported.
+
+👉 Export option allows you to download and share your bets.
+
+👉 Clean & simple, no-nonsense interface & dashboard.
+
+👉 Precise clv calculation using @12Xpert 's logarithmic function, explained in his article here https://www.football-data.co.uk/The_Wisdom_of_the_Crowd_updated.pdf
+
+👉 Tag your bets and apply it as a filter for future analysis.
+
+👉 Performance graph showing actual vs expected profits.
+
+⚠️ WHAT THIS TOOL CAN NOT DO ⚠️
+
+It can not track special bets. Hence if you're mainly betting prop markets & exotic derivatives then this tool is not for you. 
+
+❓ DON'T KNOW WHAT CLV IS ❓
+
+If your're yet unsure what clv (closing line value) is and why it is THE most predictive metric for betting analysis then I recommend heading over to @nishikoripicks 's https://twitter.com/nishikoripicks/status/1729128310758592862 and/or watch his 2-part series
+
+📽 Part I: https://youtube.com/watch?v=-uLJUhbFD_U&t=22s
+📽 Part II: https://youtube.com/watch?v=MZCeHiywKvs
+
+"""
+
 SPORTS = dict()
 SPORTS.update({'Soccer': 29})
 SPORTS.update({'Basketball': 4})
