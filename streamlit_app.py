@@ -12,10 +12,15 @@ import streamlit_authenticator as stauth
 
 from config import SPORTS, PERIODS, BOOKS, TEXT1_LANDING_PAGE, TEXT2_LANDING_PAGE, TEXT3_LANDING_PAGE
 
-st.markdown(TEXT1_LANDING_PAGE)
-st.image("dashboard_screenshot.png")
-st.markdown(TEXT2_LANDING_PAGE)
-st.markdown(TEXT3_LANDING_PAGE)
+placeholder1.empty()
+placeholder2.empty()
+placeholder3.empty()
+placeholder4.empty()
+
+placeholder1.markdown(TEXT1_LANDING_PAGE)
+placeholder2.image("dashboard_screenshot.png")
+placeholder3.markdown(TEXT2_LANDING_PAGE)
+placeholder4.markdown(TEXT3_LANDING_PAGE)
 
 st.cache_data.clear()
 users = set(db.get_users())
@@ -35,9 +40,10 @@ bets_to_be_deleted, df = set(), set()
 if not df:
   # ONLY AFTER THE AUTHENTICATION + SUBSCRIPTION, THE USER WILL SEE THIS ⤵
   # The email and subscription status is stored in session state.
-  st.write(f"Subscription Status: {st.session_state.user_subscribed}")
-  st.write("🎉 Yay! You're all set and subscribed! 🎉")
-  st.write(f'Please add a bet in the left sidebar.')
+  placeholder1.write(f"Subscription Status: {st.session_state.user_subscribed}")
+  placeholder2.write("🎉 Yay! You're all set and subscribed! 🎉")
+  placeholder3.write(f'Please add a bet in the left sidebar.')
+  placeholder4.empty()
 
 # Start of helper functions 
 
