@@ -30,8 +30,8 @@ Check out the many features below and take your betting to the next level.
 
 👉 Tag your bets and apply it as a filter for future analysis.
 
-👉 Performance graph showing actual vs expected profits.
-
+👉 Performance graph showing actual vs expected profits.  
+  
 
 
 
