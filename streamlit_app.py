@@ -18,7 +18,7 @@ st.image("dashboard_screenshot.png")
 st.markdown(TEXT2_LANDING_PAGE)
 st.markdown(TEXT3_LANDING_PAGE)
 
-add_auth(required=True)
+#add_auth(required=True)
 
 # ONLY AFTER THE AUTHENTICATION + SUBSCRIPTION, THE USER WILL SEE THIS ⤵
 # The email and subscription status is stored in session state.
