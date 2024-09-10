@@ -29,7 +29,7 @@ def bind_socket():
 
   return users, placeholder1, placeholder2, placeholder3, placeholder4
 
-bind_socket()
+users, placeholder1, placeholder2, placeholder3, placeholder4 = bind_socket()
 
 add_auth(required=True)
 
