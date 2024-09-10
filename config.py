@@ -2,7 +2,7 @@ TABLE_LEAGUES, TABLE_FIXTURES, TABLE_ODDS, TABLE_RESULTS, TABLE_BETS, TABLE_USER
 
 TEXT_LANDING_PAGE = """
 
-*THIS TOOL WILL REVEAL YOUR EDGE INSTANTLY!*
+## **THIS TOOL WILL REVEAL YOUR EDGE INSTANTLY!**
 
 Log your bets and keep track of profits + clv (closing line value) with this easy-to-use app.
 
