@@ -27,6 +27,11 @@ users = set(db.get_users())
 
 add_auth(required=True)
 
+placeholder1.empty()
+placeholder2.empty()
+placeholder3.empty()
+placeholder4.empty()
+
 # Fetch all active users from database
 
 username = st.session_state.email
