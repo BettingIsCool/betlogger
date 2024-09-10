@@ -12,24 +12,17 @@ import streamlit_authenticator as stauth
 
 from config import SPORTS, PERIODS, BOOKS, TEXT1_LANDING_PAGE, TEXT2_LANDING_PAGE, TEXT3_LANDING_PAGE
 
-@st.cache_resource
-def bind_socket():
+placeholder1 = st.empty()
+placeholder2 = st.empty()
+placeholder3 = st.empty()
+placeholder4 = st.empty()
 
-  placeholder1 = st.empty()
-  placeholder2 = st.empty()
-  placeholder3 = st.empty()
-  placeholder4 = st.empty()
+placeholder1.markdown(TEXT1_LANDING_PAGE)
+placeholder2.image("dashboard_screenshot.png")
+placeholder3.markdown(TEXT2_LANDING_PAGE)
+placeholder4.markdown(TEXT3_LANDING_PAGE)
 
-  placeholder1.markdown(TEXT1_LANDING_PAGE)
-  placeholder2.image("dashboard_screenshot.png")
-  placeholder3.markdown(TEXT2_LANDING_PAGE)
-  placeholder4.markdown(TEXT3_LANDING_PAGE)
-  
-  users = set(db.get_users())
-
-  return users, placeholder1, placeholder2, placeholder3, placeholder4
-
-users, placeholder1, placeholder2, placeholder3, placeholder4 = bind_socket()
+users = set(db.get_users())
 
 add_auth(required=True)
 
