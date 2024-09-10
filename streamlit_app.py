@@ -3,7 +3,7 @@ import datetime
 import numpy as np
 import pandas as pd
 import streamlit as st
-from st-paywall import add_auth
+from st_paywall import add_auth
 
 st.set_page_config(page_title="Betlogger by BettingIsCool", page_icon="🦈", layout="wide", initial_sidebar_state="expanded")
 
