@@ -14,7 +14,8 @@ from config import SPORTS, PERIODS, BOOKS, TEXT1_LANDING_PAGE, TEXT2_LANDING_PAG
 
 try: 
   
-  st.write(st.session_state.email)
+  if st.write(st.session_state.email):
+    pass
 
 except:
 
