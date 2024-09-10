@@ -12,7 +12,7 @@ import streamlit_authenticator as stauth
 
 from config import SPORTS, PERIODS, BOOKS, TEXT1_LANDING_PAGE, TEXT2_LANDING_PAGE, TEXT3_LANDING_PAGE
 
-@st.cache
+@st.cache_resource
 def bind_socket():
   
   placeholder1 = st.empty()
