@@ -25,12 +25,13 @@ placeholder4.markdown(TEXT3_LANDING_PAGE)
 add_auth(required=True)
 
 # Fetch all active users from database
-users = db.get_users()
-st.write(users)
+
 username = st.session_state.email
 
-if username not in users:
+if username not in db.get_users():
   db.append_user(data={'username': username})
+
+st.write(db.get_users())
 
 
 # ONLY AFTER THE AUTHENTICATION + SUBSCRIPTION, THE USER WILL SEE THIS ⤵
