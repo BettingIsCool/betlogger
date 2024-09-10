@@ -31,9 +31,7 @@ username = st.session_state.email
 
 if username not in users:
   db.append_user(data={'username': username})
-
-users = set(db.get_users())
-st.write(users)
+  users.add(username)
 
 
 # ONLY AFTER THE AUTHENTICATION + SUBSCRIPTION, THE USER WILL SEE THIS ⤵
