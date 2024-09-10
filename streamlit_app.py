@@ -12,6 +12,7 @@ import streamlit_authenticator as stauth
 
 from config import SPORTS, PERIODS, BOOKS, TEXT1_LANDING_PAGE, TEXT2_LANDING_PAGE, TEXT3_LANDING_PAGE
 
+st.write('users' not in globals())
 if 'users' not in globals():
   placeholder1 = st.empty()
   placeholder2 = st.empty()
@@ -25,7 +26,7 @@ if 'users' not in globals():
   
   st.cache_data.clear()
   users = set(db.get_users())
-
+st.write('users' not in globals())
 add_auth(required=True)
 
 placeholder1.empty()
