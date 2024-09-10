@@ -14,7 +14,12 @@ from config import SPORTS, PERIODS, BOOKS, TEXT1_LANDING_PAGE, TEXT2_LANDING_PAG
 
 try: 
   
-  st.write(st.session_state.email)
+  if isinstance(st.session_state.email, str):
+
+    placeholder1.empty()
+    placeholder2.empty()
+    placeholder3.empty()
+    placeholder4.empty()
 
 except:
 
@@ -32,10 +37,7 @@ except:
 
 add_auth(required=True)
 
-placeholder1.empty()
-placeholder2.empty()
-placeholder3.empty()
-placeholder4.empty()
+
 
 # Fetch all active users from database
 
