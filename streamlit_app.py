@@ -22,9 +22,8 @@ placeholder2.image("dashboard_screenshot.png")
 placeholder3.markdown(TEXT2_LANDING_PAGE)
 placeholder4.markdown(TEXT3_LANDING_PAGE)
 
-users = db.get_users()
-
 add_auth(required=True)
+users = db.get_users()
 
 # Fetch all active users from database
 
