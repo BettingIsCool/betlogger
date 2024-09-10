@@ -18,11 +18,6 @@ try:
 
     st.write(session_state.email)
 
-    placeholder1.empty()
-    placeholder2.empty()
-    placeholder3.empty()
-    placeholder4.empty()
-
 except:
 
   placeholder1 = st.empty()
