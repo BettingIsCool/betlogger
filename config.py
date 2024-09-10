@@ -2,7 +2,7 @@ TABLE_LEAGUES, TABLE_FIXTURES, TABLE_ODDS, TABLE_RESULTS, TABLE_BETS, TABLE_USER
 
 TEXT_LANDING_PAGE = """
 
-## **THIS TOOL WILL REVEAL YOUR EDGE INSTANTLY!**
+### **THIS TOOL WILL REVEAL YOUR EDGE INSTANTLY!**
 
 Log your bets and keep track of profits + clv (closing line value) with this easy-to-use app.
 
@@ -30,14 +30,12 @@ Check out the many features below and take your betting to the next level.
 
 👉 Tag your bets and apply it as a filter for future analysis.
 
-👉 Performance graph showing actual vs expected profits.<br><br>
+👉 Performance graph showing actual vs expected profits.
 
 
 ##### ⚠️ WHAT THIS TOOL CAN NOT DO ⚠️
 
 It can not track special bets. Hence if you're mainly betting prop markets & exotic derivatives then this tool is not for you.
-
-
 
 
 ##### ❓ DON'T KNOW WHAT CLV IS ❓
