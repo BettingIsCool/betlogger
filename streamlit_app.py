@@ -12,15 +12,20 @@ import streamlit_authenticator as stauth
 
 from config import SPORTS, PERIODS, BOOKS, TEXT1_LANDING_PAGE, TEXT2_LANDING_PAGE, TEXT3_LANDING_PAGE
 
-placeholder1 = st.empty()
-placeholder2 = st.empty()
-placeholder3 = st.empty()
-placeholder4 = st.empty()
+count = 0
 
-placeholder1.markdown(TEXT1_LANDING_PAGE)
-placeholder2.image("dashboard_screenshot.png")
-placeholder3.markdown(TEXT2_LANDING_PAGE)
-placeholder4.markdown(TEXT3_LANDING_PAGE)
+if count == 0:
+
+  placeholder1 = st.empty()
+  placeholder2 = st.empty()
+  placeholder3 = st.empty()
+  placeholder4 = st.empty()
+  
+  placeholder1.markdown(TEXT1_LANDING_PAGE)
+  placeholder2.image("dashboard_screenshot.png")
+  placeholder3.markdown(TEXT2_LANDING_PAGE)
+  placeholder4.markdown(TEXT3_LANDING_PAGE)
+  count += 1
 
 st.cache_data.clear()
 users = set(db.get_users())
