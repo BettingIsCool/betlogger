@@ -26,10 +26,9 @@ add_auth(required=True)
 
 # Fetch all active users from database
 users = db.get_users()
-st.write(users.values())
 username = st.session_state.email
 
-if username not in users.values():
+if username not in users:
   db.append_user(data={'username': username})
 
 
