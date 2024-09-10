@@ -65,6 +65,15 @@ def get_user_unique_starts(username: str, sports: str, bookmakers: str, tags: st
   return conn.query(f"SELECT DISTINCT(starts) FROM {TABLE_BETS} WHERE user = '{username}' AND sport_name IN {sports} AND bookmaker IN {bookmakers} AND tag IN {tags}", ttl=600)['starts'].tolist()
 
 
+def append_user(data: dict):
+
+  query = f"INSERT INTO {TABLE_USERS} (name, username, email) VALUES(:name, :username, :email)"
+ 
+  with conn.session as session:
+    session.execute(text(query), params = dict(name = data['name'], username = data['username'], email = data['email']))
+    session.commit()
+
+
 def append_bet(data: dict):
 
   query = f"INSERT INTO {TABLE_BETS} (user, tag, starts, sport_id, sport_name, league_id, league_name, event_id, runner_home, runner_away, market, period, period_name, side, side_name, raw_line, line, odds, stake, bookmaker, bet_status, score_home, score_away, profit, cls_odds, true_cls, cls_limit, ev, clv, bet_added) VALUES(:user, :tag, :starts, :sport_id, :sport_name, :league_id, :league_name, :event_id, :runner_home, :runner_away, :market, :period, :period_name, :side, :side_name, :raw_line, :line, :odds, :stake, :bookmaker, :bet_status, :score_home, :score_away, :profit, :cls_odds, :true_cls, :cls_limit, :ev, :clv, :bet_added)"
