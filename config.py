@@ -26,7 +26,7 @@ Check out the many features below and take your betting to the next level.
 
 👉 Clean & simple, no-nonsense interface & dashboard.
 
-👉 Precise clv calculation using @12Xpert 's logarithmic function, explained in his article here https://www.football-data.co.uk/The_Wisdom_of_the_Crowd_updated.pdf
+👉 Precise clv calculation using [@12Xpert](https://twitter.com/12Xpert?lang=en) 's logarithmic function, explained in his article here https://www.football-data.co.uk/The_Wisdom_of_the_Crowd_updated.pdf
 
 👉 Tag your bets and apply it as a filter for future analysis.
 
