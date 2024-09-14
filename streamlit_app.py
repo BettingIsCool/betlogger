@@ -12,9 +12,6 @@ import streamlit_authenticator as stauth
 
 from config import SPORTS, PERIODS, BOOKS, TEXT1_LANDING_PAGE, TEXT2_LANDING_PAGE, TEXT3_LANDING_PAGE
 
-odds_display = st.sidebar.radio("Display Odds", ['Decimal', 'American'], index=0)
-st.sidebar.write("You selected:", odds_display)
-
 try: 
   
   st.write(session_state.email)
@@ -87,6 +84,9 @@ def color_cells(val):
 
 
 # Display name & widgets in side bar
+odds_display = st.sidebar.radio("Display Odds", ['Decimal', 'American'], index=0)
+st.sidebar.write("You selected:", odds_display)
+
 st.sidebar.title(f"Welcome {username}")
 
 # Add a bet
