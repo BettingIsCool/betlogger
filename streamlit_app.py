@@ -86,9 +86,6 @@ def color_cells(val):
 # Display name & widgets in side bar
 st.sidebar.title(f"Welcome {username}")
 
-odds_display = st.sidebar.radio("Display Odds", ['Decimal', 'American'], index=0)
-st.sidebar.write("You selected:", odds_display)
-
 # Add a bet
 st.sidebar.write('Add a bet')
 
