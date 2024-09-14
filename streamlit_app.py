@@ -33,8 +33,6 @@ except:
 
 add_auth(required=True)
 
-st_autorefresh(interval=5000, debounce=True)
-
 placeholder1.empty()
 placeholder2.empty()
 placeholder3.empty()
