@@ -87,6 +87,10 @@ def color_cells(val):
 st.sidebar.title(f"Welcome {username}")
 
 # Add a bet
+
+odds_display = st.sidebar.radio("Display Odds", ['Decimal', 'American'], index=0)
+st.sidebar.write("You selected:", odds_display)
+
 st.sidebar.write('Add a bet')
 
 selected_sport = st.sidebar.selectbox(label='Select sport', options=SPORTS.keys(), index=None, placeholder='Start typing...', help='41 unique sports supported.')
