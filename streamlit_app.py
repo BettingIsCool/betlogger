@@ -4,6 +4,7 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 from st_paywall import add_auth
+from streamlit_autorefresh import st_autorefresh
 
 st.set_page_config(page_title="Betlogger by BettingIsCool", page_icon="🦈", layout="wide", initial_sidebar_state="expanded")
 
@@ -31,6 +32,8 @@ except:
   users = set(db.get_users())
 
 add_auth(required=True)
+
+st_autorefresh(interval=5, debounce=True)
 
 placeholder1.empty()
 placeholder2.empty()
