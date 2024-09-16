@@ -307,7 +307,7 @@ if len(df) > 0:
     color_clv = ':red'
     color_ev = ':green'
 
-  st.header(f"BETS: :gray[{bet_count}] - TURNOVER: :gray[{int(turnover)}] - P/L: {color_profit}[{round(sum_profit, 2):+g}] - ROI: {color_profit}[{round(sum_profit / turnover, 2):+g}%] - EXP_WIN: {color_ev}[{round(sum_ev, 2):+g}] - CLV: {color_clv}[{round(100 * clv, 2):+g}%]")
+  st.header(f"BETS: :gray[{bet_count}] - TURNOVER: :gray[{int(turnover)}] - P/L: {color_profit}[{round(sum_profit, 2):+g}] - ROI: {color_profit}[{round(100 * sum_profit / turnover, 2):+g}%] - EXP_WIN: {color_ev}[{round(sum_ev, 2):+g}] - CLV: {color_clv}[{round(100 * clv, 2):+g}%]")
 
   cum_profit, cum_clv, cum_bets = list(), list(), list()
   cur_profit, cur_clv, cur_bets = 0.00, 0.00, 0
